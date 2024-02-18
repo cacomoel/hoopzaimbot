@@ -1,7 +1,7 @@
 local correctKey = "KLWJH92iojc98j2k;la902" -- Set the correct key
 local scriptUrl = "https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua" -- Replace with the correct script URL
 
-local playersService = game.Players
+local playersService = game:GetService("Players")
 local player = playersService.LocalPlayer
 
 -- Check if the player is valid
