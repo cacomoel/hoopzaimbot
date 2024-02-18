@@ -1,7 +1,6 @@
 local correctKey = "KLWJH92iojc98j2k;la902" -- Set the correct key
-local scriptUrl = "https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua" -- Replace with your script URL
+        local scriptUrl = "https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua" -- Replace with your script URL
 
-local playerService = game:GetService("Players")
 local player = game.Players.LocalPlayer
 
 -- Check if the player is valid
@@ -111,7 +110,7 @@ checkKeyButton.MouseButton1Click:Connect(function()
         notify("SyntaxSucks", "Controller Loaded", 5)
 
         -- Check if the key belongs to the local player
-        if playerService:GetUserByUserId(player.UserId):GetJoinData().SessionId == keyTextBox.Text then
+        if player.UserId == tonumber(keyTextBox.Text) then
             -- Load the external script (replace "your_script_url_here" with the actual URL)
             local success, error = pcall(function()
                 loadstring(game:HttpGet(scriptUrl))()
