@@ -1,5 +1,6 @@
-local correctKey = "KLWJH92iojc98j2k;la902" -- Set the correct key
-local scriptUrl = "https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua" -- Replace with the correct script URL
+-- Set the correct key
+local correctKey = "KLWJH92iojc98j2k;la902"
+local scriptUrl = "https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua"
 
 local playersService = game:GetService("Players")
 local player = playersService.LocalPlayer
@@ -16,23 +17,31 @@ gui.Name = "ControllerSimulatorGui"
 gui.Parent = player.PlayerGui
 
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0.3, 0, 0.2, 0)
-mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+mainFrame.Size = UDim2.new(0.5, 0, 0.5, 0)
+mainFrame.Position = UDim2.new(0.25, 0, 0.25, 0)
 mainFrame.BackgroundColor3 = Color3.new(0, 0, 0)
 mainFrame.BackgroundTransparency = 0.5
 mainFrame.BorderSizePixel = 2
 mainFrame.BorderColor3 = Color3.new(1, 1, 1)
 mainFrame.Parent = gui
 
-local keyLabel = Instance.new("TextLabel")
-keyLabel.Text = "Enter Key:"
-keyLabel.Font = Enum.Font.SourceSansBold
-keyLabel.TextSize = 18
-keyLabel.Size = UDim2.new(1, 0, 0.2, 0)
-keyLabel.Position = UDim2.new(0, 0, 0, 0)
-keyLabel.TextColor3 = Color3.new(1, 1, 1)
-keyLabel.Parent = mainFrame
+-- Create a function to create labels
+local function createLabel(text, size, position, parent)
+    local label = Instance.new("TextLabel")
+    label.Text = text
+    label.Font = Enum.Font.SourceSansBold
+    label.TextSize = size
+    label.Size = UDim2.new(1, 0, 0.2, 0)
+    label.Position = position
+    label.TextColor3 = Color3.new(1, 1, 1)
+    label.Parent = parent
+    return label
+end
 
+-- Labels
+createLabel("Enter Key:", 18, UDim2.new(0, 0, 0, 0), mainFrame)
+
+-- TextBox
 local keyTextBox = Instance.new("TextBox")
 keyTextBox.PlaceholderText = "Enter key here"
 keyTextBox.Size = UDim2.new(1, 0, 0.3, 0)
@@ -41,6 +50,7 @@ keyTextBox.TextColor3 = Color3.new(0, 0, 0)
 keyTextBox.BackgroundTransparency = 0.8
 keyTextBox.Parent = mainFrame
 
+-- Check Key Button
 local checkKeyButton = Instance.new("TextButton")
 checkKeyButton.Text = "Check Key"
 checkKeyButton.Size = UDim2.new(1, 0, 0.2, 0)
@@ -49,9 +59,10 @@ checkKeyButton.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
 checkKeyButton.TextColor3 = Color3.new(1, 1, 1)
 checkKeyButton.Parent = mainFrame
 
+-- Loading Frame
 local loadingFrame = Instance.new("Frame")
 loadingFrame.Size = UDim2.new(0.5, 0, 0.2, 0)
-loadingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+loadingFrame.Position = UDim2.new(0.25, 0, 0.4, 0)
 loadingFrame.BackgroundColor3 = Color3.new(0, 0, 0)
 loadingFrame.BackgroundTransparency = 0.5
 loadingFrame.BorderSizePixel = 2
@@ -59,14 +70,17 @@ loadingFrame.BorderColor3 = Color3.new(1, 1, 1)
 loadingFrame.Visible = false
 loadingFrame.Parent = gui
 
-local loadingLabel = Instance.new("TextLabel")
-loadingLabel.Text = "Loading..."
-loadingLabel.Font = Enum.Font.SourceSansBold
-loadingLabel.TextSize = 18
-loadingLabel.Size = UDim2.new(1, 0, 1, 0)
-loadingLabel.Position = UDim2.new(0, 0, 0, 0)
-loadingLabel.TextColor3 = Color3.new(1, 1, 1)
-loadingLabel.Parent = loadingFrame
+-- Loading Label
+local loadingLabel = createLabel("Loading...", 18, UDim2.new(0, 0, 0, 0), loadingFrame)
+
+-- Get Key Button
+local getKeyButton = Instance.new("TextButton")
+getKeyButton.Text = "Get Key"
+getKeyButton.Size = UDim2.new(1, 0, 0.2, 0)
+getKeyButton.Position = UDim2.new(0, 0, 0.7, 0)
+getKeyButton.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
+getKeyButton.TextColor3 = Color3.new(1, 1, 1)
+getKeyButton.Parent = mainFrame
 
 -- Notification Function
 local function notify(title, description, duration)
@@ -84,6 +98,13 @@ local function notify(title, description, duration)
     wait(duration or 5)
 
     Notification:Destroy()
+end
+
+-- Tweening function for animations
+local function tweenObject(obj, propertyTable)
+    local tweenInfo = TweenInfo.new(0.5)
+    local tween = game:GetService("TweenService"):Create(obj, tweenInfo, propertyTable)
+    tween:Play()
 end
 
 -- Simulate 'X' key press and release on BUTTONR2 press (controller) and mouse click
@@ -107,8 +128,13 @@ end
 checkKeyButton.MouseButton1Click:Connect(function()
     if keyTextBox.Text == correctKey then
         mainFrame.Visible = false
-        loadingFrame.Visible = true
         notify("SyntaxSucks", "Controller Loaded", 5)
+        loadingFrame.Visible = true
+
+        -- Animation for loadingFrame
+        tweenObject(loadingFrame, {Size = UDim2.new(0.2, 0, 0.1, 0), Position = UDim2.new(0.4, 0, 0.45, 0)})
+
+        wait(2) -- Simulating loading time
 
         -- Check if the key belongs to the local player
         if player.UserId == tonumber(keyTextBox.Text) then
@@ -125,5 +151,35 @@ checkKeyButton.MouseButton1Click:Connect(function()
         end
     else
         notify("SyntaxSucks", "Incorrect key. Please try again.", 3)
+    end
+end)
+
+-- Get Key Button Click Event
+getKeyButton.MouseButton1Click:Connect(function()
+    -- Copy script link to clipboard
+    local success, message = pcall(function()
+        if game:IsA("GuiService") and game:GetService("GuiService"):IsTenFootInterface() then
+            -- For console platforms
+            game:GetService("GuiService").Clipboard = scriptUrl
+        else
+            -- For PC and mobile
+            local userInputService = game:GetService("UserInputService")
+            if userInputService.TouchEnabled then
+                -- Mobile
+                game:GetService("StarterGui"):SetCore("SendNotification", {
+                    Title = "SyntaxSucks",
+                    Text = "Script link copied to clipboard",
+                    Duration = 5
+                })
+            else
+                -- PC
+                setclipboard(scriptUrl)
+                notify("SyntaxSucks", "Script link copied to clipboard", 5)
+            end
+        end
+    end)
+
+    if not success then
+        warn("Failed to copy script link to clipboard: " .. message)
     end
 end)
