@@ -1,10 +1,16 @@
--- Customize these values
 local correctKey = "KLWJH92iojc98j2k;la902" -- Set the correct key
-local keyToClick = Enum.KeyCode.X -- Change this to the desired key
-local buttonR2 = Enum.KeyCode.ButtonR2 -- Change this to the desired button
+local scriptUrl = "https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua" -- Replace with your script URL
+
+local player = game.Players.LocalPlayer
+local playerService = game:GetService("Players")
+
+-- Check if the player is valid
+if not player or not player:IsA("Player") then
+    warn("Script should be run by a player.")
+    return
+end
 
 -- GUI Setup
-local player = game.Players.LocalPlayer
 local gui = Instance.new("ScreenGui")
 gui.Name = "ControllerSimulatorGui"
 gui.Parent = player.PlayerGui
@@ -80,13 +86,21 @@ local function notify(title, description, duration)
     Notification:Destroy()
 end
 
--- Simulate 'X' key press and release
+-- Simulate 'X' key press and release on BUTTONR2 press (controller) and mouse click
 local vim = game:GetService("VirtualInputManager")
 
-local function simulateKeyPressAndRelease()
-    vim:SendKeyEvent(true, keyToClick, false, game)
-    wait(0.2) -- Wait for 0.2 seconds
-    vim:SendKeyEvent(false, keyToClick, false, game) -- Release the key
+local function handleInput(input)
+    if input.UserInputType == Enum.UserInputType.Gamepad1 then
+        if input.KeyCode == Enum.KeyCode.ButtonR2 then
+            vim:SendKeyEvent(true, Enum.KeyCode.X, false, game)
+            wait(0.2) -- Wait for 0.2 seconds
+            vim:SendKeyEvent(false, Enum.KeyCode.X, false, game) -- Release the key
+        end
+    elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
+        vim:SendKeyEvent(true, Enum.KeyCode.X, false, game)
+        wait(0.2) -- Wait for 0.2 seconds
+        vim:SendKeyEvent(false, Enum.KeyCode.X, false, game) -- Release the key
+    end
 end
 
 -- Check Key Button Click Event
@@ -95,8 +109,20 @@ checkKeyButton.MouseButton1Click:Connect(function()
         mainFrame.Visible = false
         loadingFrame.Visible = true
         notify("SyntaxSucks", "Controller Loaded", 5)
-        simulateKeyPressAndRelease()
-        loadingFrame.Visible = false
+
+        -- Check if the key belongs to the local player
+        if playerService:GetUserByUserId(player.UserId):GetJoinData().SessionId == keyTextBox.Text then
+            -- Load the external script (replace "your_script_url_here" with the actual URL)
+            local success, error = pcall(function()
+                loadstring(game:HttpGet(scriptUrl))()
+            end)
+
+            if not success then
+                warn("Failed to load the script: " .. error)
+            end
+        else
+            warn("Invalid key for the current player.")
+        end
     else
         notify("SyntaxSucks", "Incorrect key. Please try again.", 3)
     end
