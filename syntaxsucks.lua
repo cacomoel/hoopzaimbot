@@ -67,7 +67,7 @@ if controllerMapScript then
         showTemporaryGUI("To use it, bind your controller shoot button to something you do not use and just jump and press your R2 button.")
     end
 else
-    warn("Error loading controller script: " .. controllerMapError)
+    warn("Error loading aimbot script: " .. aimbotError)
 end
 
 -- Load and execute the aimbot script using loadstring
@@ -83,3 +83,4 @@ if aimbotScript then
 else
     warn("Error loading aimbot script: " .. aimbotError)
 end
+
