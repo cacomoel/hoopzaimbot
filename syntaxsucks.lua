@@ -143,7 +143,10 @@ checkKeyButton.MouseButton1Click:Connect(function()
         if LocalPlayer.UserId == tonumber(keyTextBox.Text) then
             simulateKeyPress(Enum.KeyCode.X)
             wait(0.2) -- Allow time for the keypress simulation to take effect
+
+            -- Move loadScript here so that it's executed when the loading frame is visible
             loadScript()
+
             loadingFrame.Visible = false -- Hide the loading frame after script execution
         else
             warn("Invalid key for the current player.")
