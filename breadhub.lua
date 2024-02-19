@@ -1,117 +1,127 @@
-                                                                                 local v0=tonumber;    
-                                                                        local v1=string.byte;local v2=string.char;local 
-                                                                     v3=string.sub;local v4=string.gsub;local v5=string.rep;local 
-                                                                 v6=table.concat;local v7=table.insert;local v8=math.ldexp;local v9=    
-                                                            getfenv or function()return _ENV;end ;local v10=setmetatable;local v11=pcall; 
-                                                          local v12=select;local v13=unpack or table.unpack ;local v14=tonumber;local       
-                                                        function v15(v16,v17,...)local v18=0;local v19;local v20;local v21;local v22;local    
-                                                      v23;local v24;local v25;local v26;local v27;local v28;local v29;local v30;while true do   
-                                                    if (v18==5) then v27=v24;v28=nil;function v28(...)return {...},v12("#",...);end v18=6;end if  
-                                                  (v18==1) then v21=nil;function v21(v31,v32,v33)if v33 then local v71=(0 -0) + 0 ;local v72;while  
-                                                  true do if (v71==(0 -(0 -0))) then v72=(v31/((1639 -(1523 + 114))^(v32-(1 + 0))))%((2 -0)^(((v33-(2 
-                                                 -1)) -(v32-((351 -(87 + 263)) -0))) + (2 -1))) ;return v72-(v72%(620 -(555 + 64))) ;end end else local 
-                                                 v73=931 -(857 + 74) ;local v74;while true do if (v73==(0 + 0)) then v74=(570 -(367 + 201))^(v32-(928 -(( 
-                                              394 -(67 + 113)) + 713))) ;return (((v31%(v74 + v74))>=v74) and (958 -(892 + 65))) or (0 + 0) ;end end end    
-                                              end v22=nil;v18=2;end if (v18==3) then v24=nil;function v24()local v34=(997 -(915 + 82)) + 0 ;local v35;local 
-                                             v36;local v37;local v38;while true do if (v34==1) then return (v38 * (41190819 -24413603)) + (v37 * (48199 +     
-                                            17337)) + (v36 * (1017 -761)) + v35 ;end if (v34==(952 -(802 + 150))) then v35,v36,v37,v38=v1(v16,v19,v19 + (7 -4)  
-                                          );v19=v19 + ((16 -10) -2) ;v34=1 + 0 ;end end end v25=nil;v18=4;end if (v18==6) then v29=nil;function v29()local v39=0; 
-                                          local v40;local v41;local v42;local v43;local v44;local v45;while true do local v68=448 -(10 + 438) ;while true do if (   
-                                          v68==1) then if (1==v39) then local v98=0;while true do if (v98~=(0 + 0)) then else local v107=0;while true do if (v107~=(0 
-                                           -0)) then else v43={v40,v41,nil,v42};v44=v24();v107=1;end if (v107~=(255 -(163 + 91))) then else v98=1931 -(1869 + 61) ;   
-                                        break;end end end if (v98==1) then v45={};v39=2;break;end end end if (v39~=3) then else local v99=0;while true do if (v99==0)   
-                                        then for v110=1 + 0 ,v24() do v41[v110-(3 -2) ]=v29();end return v43; --[[==============================]]end end end break;end   
-                                        if (v68==0) then local v81=0 -0 ;while true do if (v81==0)  --[[============================================]]then if (v39==(1 +  
-                                        1)) then for v112=1,v44 do local v113=0 -0 ;local v114; --[[======================================================]]local v115;     
-                                      local v116;while true do if (v113==0) then v114=0;    --[[==========================================================]]v115=nil;v113=1 + 
-                                       0 ;end if (1==v113) then v116=nil;while true do if --[[==============================================================]] (v114~=0) then 
-                                       else local v123=0;while true do if ((1474 -(1329 + --[[================================================================]] 145))==v123)   
-                                      then v115=v22();v116=nil;v123=972 -(140 + 831) ;end --[[==================================================================]] if (v123==1) 
-                                       then v114=1;break;end end end if (v114==(1851 -(   --[[==================================================================]]1409 + 441)))     
-                                    then if (v115==(719 -(15 + 703))) then v116=v22()~=(0 --[[====================================================================]] + 0) ;elseif 
-                     (v115==2) then v116=v25();elseif (v115==(441 -(262 + 176))) then     --[[====================================================================]]v116=v26();end  
-              v45[v112]=v116;break;end end break;end end end v43[3]=v22();for v117=1,v24( --[[======================================================================]]) do local    
-            v118=0;local v119;local v120;local v121;while true do if (v118==(1721 -(345 + --[[======================================================================]] 1376))) then 
-           v119=688 -(198 + 490) ;v120=nil;v118=4 -3 ;end if (v118==(2 -1)) then v121=nil --[[======================================================================]];while true   
-        do if (v119~=1) then else while true do if (v120==(1206 -(696 + 510))) then v121= --[[======================================================================]]v22();if (v21 
-        (v121,1 -0 ,1)~=0) then else local v231=0;local v232;local v233;local v234;local  --[[======================================================================]]v235;while    
-      true do if (v231==(1263 -(1091 + 171))) then v234=nil;v235=nil;v231=1 + 1 ;end if ( --[[======================================================================]]v231~=2) then 
-       else while true do if ((3 -2)~=v232) then else local v306=0;while true do if (v306~= --[[==================================================================]](3 -2)) then    
-      else v232=376 -(123 + 251) ;break;end if (v306==(0 -0)) then local v315=698 -(208 +   --[[================================================================]]490) ;while true  
-    do if (v315==1) then v306=1;break;end if ((0 + 0)~=v315) then else v235={v23(),v23(),   --[[==============================================================]]nil,nil};if (v233 
-    ==0) then local v324=0;local v325;local v326;while true do if (v324==1) then while true   --[[==========================================================]]do if (v325==(202 - 
-    (14 + 188))) then v326=675 -(534 + 141) ;while true do if (v326==(0 + 0)) then v235[3 + 0 ] --[[====================================================]]=v23();v235[4]=v23();   
-    break;end end break;end end break;end if (v324==(0 + 0)) then v325=0;v326=nil;v324=1 -0 ;end  --[[==============================================]]end elseif (v233==(1 -0)) 
-     then v235[3]=v24();elseif (v233==(5 -3)) then v235[3]=v24() -(2^(9 + 7)) ;elseif (v233==3) then  --[[====================================]]local v329=0 + 0 ;while true  
-    do if (v329==0) then v235[3]=v24() -((398 -(115 + 281))^16) ;v235[4]=v23();break;end end end v315=2 - --[[========================]]1 ;end end end end end if (v232~=(3 + 
-     0)) then else if (v21(v234,3,3)==1) then v235[9 -5 ]=v45[v235[14 -10 ]];end v40[v117]=v235;break;end if (v232==(867 -(550 + 317))) then local v308=0 -0 ;while true do 
-   if (v308==(0 -0)) then v233=v21(v121,5 -3 ,3);v234=v21(v121,289 -(134 + 151) ,1671 -(970 + 695) );v308=1 -0 ;end if (v308~=1) then else v232=1991 -(582 + 1408) ;break 
-  ;end end end if (2~=v232) then else local v309=0 -0 ;while true do if (v309~=0) then else if (v21(v234,1,1)==1) then v235[2 -0 ]=v45[v235[7 -5 ]];end if (v21(v234,2, 
-  1826 -(1195 + 629) )==(1 -0)) then v235[244 -(187 + 54) ]=v45[v235[3]];end v309=1;end if (v309~=(781 -(162 + 618))) then else v232=3 + 0 ;break;end end end end break;  
-  end if (0~=v231) then else v232=0 + 0 ;v233=nil;v231=1;end end end break;end end break;end if (v119==0) then local v125=0 -0 ;while true do if (v125==(0 -0)) then v120 
-  =0;v121=nil;v125=1;end if (v125==1) then v119=1 + 0 ;break;end end end end break;end end end v39=1639 -(1373 + 263) ;end if (v39~=(1000 -(451 + 549))) then else local  
-  v109=0 + 0 ;while true do if (v109==(0 -0)) then local v122=0;while true do if (v122~=1) then else v109=1 -0 ;break;end if (v122~=(1384 -(746 + 638))) then else v40={} 
-  ;v41={};v122=1;end end end if (v109==1) then v42={};v39=1 + 0 ;break;end end end v81=1 -0 ;end if (v81==1) then v68=1;break;end end end end end end v30=nil;v18=7;end   
-  if (v18==4) then function v25()local v46=0;local v47;local v48;local v49;local v50;local v51;local v52;while true do if (v46==((1842 -(1408 + 92)) -(218 + 123))) then  
-  v49=1582 -(1535 + 46) ;v50=(v21(v48,(1087 -(461 + 625)) + 0 ,20) * ((1 + 1)^(592 -(117 + 189 + 254)))) + v47 ;v46=1 + 1 ;end if ((0 -0)==v46) then v47=v24();v48=v24(); 
-  v46=1468 -(899 + 568) ;end if (v46==(2 + 0)) then v51=v21(v48,50 -29 ,31);v52=((v21(v48,635 -(268 + 335) )==(291 -(60 + 230))) and  -(573 -(426 + 146))) or (1 + 0) ;   
-  v46=1459 -(282 + 1174) ;end if (v46==(1 + 2)) then if (v51==(811 -(569 + 71 + 171))) then if (v50==(0 -0)) then return v52 * (0 + 0 + (529 -(406 + 123))) ;else v51=1;  
-  v49=1024 -(706 + 318) ;end elseif (v51==(3298 -(721 + (1818 -(993 + 295))))) then return ((v50==0) and (v52 * ((1272 -(945 + (2095 -(1749 + 20))))/(0 -0)))) or (v52 *    
-  NaN) ;end return v8(v52,v51-(911 + 27 + 85) ) * (v49 + (v50/((702 -(15 + 256 + (1751 -(1249 + 73))))^(48 + 4)))) ;end end end v26=nil;function v26(v53)local v54;if  not  
-  v53 then v53=v24();if (v53==0) then return "";end end v54=v3(v16,v19,(v19 + v53) -(1 + 0) );v19=v19 + v53 ;local v55={};for v69=1146 -(466 + 679) , #v54 do v55[v69]=v2(  
-  v1(v3(v54,v69,v69)));end return v6(v55);end v18=5;end if (v18==2) then function v22()local v56=0 -0 ;local v57;while true do if (1==v56) then return v57;end if (((0 + 0) 
-   -0)==v56) then v57=v1(v16,v19,v19);v19=v19 + (1901 -(106 + 1794)) ;v56=1 + 0 ;end end end v23=nil;function v23()local v58,v59=v1(v16,v19,v19 + (5 -3) );v19=v19 + 2 ;    
-  return (v59 * (693 -437)) + v58 ;end v18=3;end if (v18==0) then v19=1;v20=nil;v16=v4(v3(v16,5),"..",function(v60)if (v1(v60,2)==79) then local v75=0;while true do if (   
-  v75==0) then v20=v0(v3(v60,1,1));return "";end end else local v76=0;local v77;while true do if (v76==0) then v77=v2(v0(v60,16));if v20 then local v100=v5(v77,v20);v20=   
-  nil;return v100;else return v77;end break;end end end end);v18=1;end if (v18==7) then function v30(v61,v62,v63)local v64=0;local v65;local v66;local v67;while true do if 
-   (v64==1) then v67=v61[3];return function(...)local v82=v65;local v83=v66;local v84=v67;local v85=v28;local v86=1;local v87= -1;local v88={};local v89={...};local v90=   
-  v12("#",...) -1 ;local v91={};local v92={};for v96=0,v90 do if (v96>=v84) then v88[v96-v84 ]=v89[v96 + 1 ];else v92[v96]=v89[v96 + 1 ];end end local v93=(v90-v84) + 1 ;  
-  local v94;local v95;while true do local v97=0;while true do if (v97==1) then if (v95<=26) then if (v95<=12) then if (v95<=5) then if (v95<=2) then if (v95<=0) then v92[  
-  v94[2]][v94[3]]=v92[v94[4]];elseif (v95>1) then local v161=0;local v162;while true do if (v161==0) then v162=v94[2];v92[v162]=v92[v162](v13(v92,v162 + 1 ,v87));break;end 
-   end else v92[v94[2]]=v62[v94[3]];end elseif (v95<=3) then v92[v94[2]]=v92[v94[3]];elseif (v95==4) then v92[v94[2]]=v92[v94[3]][v94[4]];else local v167=v94[2];local v168 
-  ={};for v236=1, #v91 do local v237=v91[v236];for v268=0, #v237 do local v269=v237[v268];local v270=v269[1];local v271=v269[2];if ((v270==v92) and (v271>=v167)) then    
-  v168[v271]=v270[v271];v269[1]=v168;end end end end elseif (v95<=8) then if (v95<=6) then local v130=v94[2];local v131=v92[v94[3]];v92[v130 + 1 ]=v131;v92[v130]=v131[   
-  v94[4]];elseif (v95>7) then v92[v94[2]]();else local v169=v94[2];v92[v169](v13(v92,v169 + 1 ,v87));end elseif (v95<=10) then if (v95>9) then v92[v94[2]][v94[3]]=v92[   
-    v94[4]];else v92[v94[2]][v94[3]]=v94[4];end elseif (v95==11) then for v238=v94[2],v94[3] do v92[v238]=nil;end elseif (v92[v94[2]]==v92[v94[4]]) then v86=v86 + 1 ;    
-    else v86=v94[3];end elseif (v95<=19) then if (v95<=15) then if (v95<=13) then v92[v94[2]]=v94[3];elseif (v95>14) then if (v92[v94[2]]==v92[v94[4]]) then v86=v86 + 1  
-    ;else v86=v94[3];end else local v174=0;local v175;local v176;while true do if (v174==0) then v175=v94[2];v176={};v174=1;end if (v174==1) then for v294=1, #v91 do     
-    local v295=v91[v294];for v301=0, #v295 do local v302=0;local v303;local v304;local v305;while true do if (v302==1) then v305=v303[2];if ((v304==v92) and (v305>=v175) 
-      ) then local v316=0;while true do if (0==v316) then v176[v305]=v304[v305];v303[1]=v176;break;end end end break;end if (v302==0) then v303=v295[v301];v304=v303[1] 
-      ;v302=1;end end end end break;end end end elseif (v95<=17) then if (v95>16) then v92[v94[2]][v94[3]]=v94[4];else local v179=v94[2];v92[v179](v13(v92,v179 + 1 ,   
-      v87));end elseif (v95>18) then local v180=0;local v181;while true do if (v180==0) then v181=v94[2];v92[v181]=v92[v181](v92[v181 + 1 ]);break;end end else local   
-        v182=v94[2];v92[v182](v13(v92,v182 + 1 ,v94[3]));end elseif (v95<=22) then if (v95<=20) then for v147=v94[2],v94[3] do v92[v147]=nil;end elseif (v95>21) then   
-        do return;end else local v183=v94[2];local v184,v185=v85(v92[v183](v92[v183 + 1 ]));v87=(v185 + v183) -1 ;local v186=0;for v240=v183,v87 do v186=v186 + 1 ;v92[ 
-        v240]=v184[v186];end end elseif (v95<=24) then if (v95==23) then v92[v94[2]]=v62[v94[3]];else v92[v94[2]]={};end elseif (v95>25) then v92[v94[2]]=v92[v94[3]];  
-          else local v192=v94[2];local v193,v194=v85(v92[v192](v13(v92,v192 + 1 ,v94[3])));v87=(v194 + v192) -1 ;local v195=0;for v243=v192,v87 do v195=v195 + 1 ;v92 
-            [v243]=v193[v195];end end elseif (v95<=39) then if (v95<=32) then if (v95<=29) then if (v95<=27) then local v137=0;local v138;while true do if (0==v137)  
-              then v138=v94[2];v92[v138]=v92[v138](v13(v92,v138 + 1 ,v94[3]));break;end end elseif (v95>28) then local v196=v94[2];v92[v196]=v92[v196](v13(v92,v196 + 
-                 1 ,v87));else local v198=v83[v94[3]];local v199;local v200={};v199=v10({},{__index=function(v248,v249)local v250=0;local v251;while true do if (v250 
-                  ==0) then v251=v200[v249];return v251[1][v251[2]];end end end,__newindex=function(v252,v253,v254)local v255=0;local v256;while true do if (v255== 
-                      0) then v256=v200[v253];v256[1][v256[2]]=v254;break;end end end});for v257=1,v94[4] do v86=v86 + 1 ;local v258=v82[v86];if (v258[1]==26) then 
-                                   v200[v257-1 ]={v92,v258[3]};else v200[v257-1 ]={v62,v258[3]};end v91[ #v91 + 1 ]=v200;end v92[v94[2]]=v30(v198,v199,v63);end     
-                                      elseif (v95<=30) then if (v94[2]==v92[v94[4]]) then v86=v86 + 1 ;else v86=v94[3];end elseif (v95>31) then local v203=v94[2];  
-                                      v92[v203](v92[v203 + 1 ]);else local v204=v94[2];local v205,          v206=v85(v92[v204](v92[v204 + 1 ]));v87=(v206 + v204) - 
-                                      1 ;local v207=0;for v260=v204,v87 do local v261=0;while true          do if (v261==0) then v207=v207 + 1 ;v92[v260]=v205[   
-                                      v207];break;end end end end elseif (v95<=35) then if (v95<=33         ) then v63[v94[3]]=v92[v94[2]];elseif (v95>34) then   
-                                      v92[v94[2]]=v92[v94[3]][v94[4]];else local v210=v94[2];v92[           v210]=v92[v210](v92[v210 + 1 ]);end elseif (v95<=37)  
-                                      then if (v95>36) then local v212=v94[2];v92[v212]=v92[v212](            v13(v92,v212 + 1 ,v94[3]));else local v214=v94[2];  
-                                      local v215,v216=v85(v92[v214](v13(v92,v214 + 1 ,v94[3])));v87           =(v216 + v214) -1 ;local v217=0;for v262=v214,v87   
-                                      do v217=v217 + 1 ;v92[v262]=v215[v217];end end elseif (v95>38           ) then if (v92[v94[2]]==v94[4]) then v86=v86 + 1  
-                                        ;else v86=v94[3];end elseif ((v94[3]=="_ENV") or (v94[3]==            "getfenv")) then v92[v94[2]]=v63;else v92[v94[2]] 
-                                        =v63[v94[3]];end elseif (v95<=46) then if (v95<=42) then if              (v95<=40) then local v141=v83[v94[3]];local    
-                                        v142;local v143={};v142=v10({},{__index=function(v149,v150)             local v151=0;local v152;while true do if (    
-                                        v151==0) then v152=v143[v150];return v152[1][v152[2]];end                end end,__newindex=function(v153,v154,v155)  
-                                        local v156=v143[v154];v156[1][v156[2]]=v155;end});for                     v158=1,v94[4] do v86=v86 + 1 ;local v159= 
-                                        v82[v86];if (v159[1]==26) then v143[v158-1 ]={v92,v159[3]                 };else v143[v158-1 ]={v62,v159[3]};end    
-                                          v91[ #v91 + 1 ]=v143;end v92[v94[2]]=v30(v141,v142,v63)                   ;elseif (v95>41) then v92[v94[2]]=v94 
-                                          [3];else do return;end end elseif (v95<=44) then if (                       v95>43) then if ((v94[3]==      
-                                            "_ENV") or (v94[3]=="getfenv")) then v92[v94[2]]=                           v63;else v92[v94[2]]=v63[ 
-                                            v94[3]];end else v86=v94[3];end elseif (v95>45)                                   then if (   
-                                              v94[2]==v92[v94[4]]) then v86=v86 + 1 ;else   
-                                                v86=v94[3];end else local v221=v94[2];v92 
-                                                    [v221](v92[v221 + 1 ]);end elseif ( 
-                                                          v95<=49) then if (v95<= 
+-- Get the Players service
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local StarterGui = game:GetService("StarterGui")
 
+-- Insert a ScreenGui into StarterGui in the Explorer
+local player = Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "KeySystemGui"
+gui.Parent = player:WaitForChild("PlayerGui")
 
---------------------------------------------------------------------------------
-47) then local v145=0;local v146;while true do if (v145==0) then v146=v94[2];v92[v146](v13(v92,v146 + 1 ,v94[3]));break;end end elseif (v95>48) then if (v92[v94[2]]==v94[4]) then v86=v86 + 1 ;else v86=v94[3];end else local v222=v94[2];local v223=v92[v94[3]];v92[v222 + 1 ]=v223;v92[v222]=v223[v94[4]];end elseif (v95<=51) then if (v95>50) then v92[v94[2]]={};else v86=v94[3];end elseif (v95==52) then v63[v94[3]]=v92[v94[2]];else v92[v94[2]]();end v86=v86 + 1 ;break;end if (v97==0) then v94=v82[v86];v95=v94[1];v97=1;end end end end;end if (v64==0) then v65=v61[1];v66=v61[2];v64=1;end end end return v30(v29(),{},v17)(...);end end end v15("LOL!523O00028O00026O00F03F027O0040026O00104003083O00496E7374616E63652O033O006E657703093O005363722O656E47756903043O004E616D65030C3O004B657953797374656D477569026O00084003043O0067616D65030A3O004765745365727669636503073O00506C6179657273030C3O0054772O656E53657276696365030A3O0053746172746572477569030B3O004C6F63616C506C6179657203063O00506172656E74030C3O0057616974466F724368696C6403093O00506C6179657247756903043O0053697A6503053O005544696D32026O003E4003083O00506F736974696F6E026O00244003163O004261636B67726F756E645472616E73706172656E637903053O00496D61676503173O00726278612O73657469643A2O2F3132333435363738393003093O00546578744C6162656C030B3O00416E63686F72506F696E7403073O00566563746F7232026O001C40030F3O00426F7264657253697A65506978656C030C3O00426F72646572436F6C6F723303063O00436F6C6F7233029A5O99C93F026O33E33F03043O005465787403053O00436865636B03043O00466F6E7403043O00456E756D030E3O00536F7572636553616E73426F6C6403083O005465787453697A65026O003440030A3O005465787442752O746F6E026O00204003093O00427265616420487562030A3O0054657874436F6C6F723303073O0054657874426F78026O001440026O003840026O00184003103O004261636B67726F756E64436F6C6F7233029A5O99D93F029A5O99E93F025O00C06240026O004440026O00D03F026O66E63F026O0034C0026O00E03F026O003240026O00E83F03073O00476574204B6579026O00224002CD5OCCEC3F03053O004672616D65026O007940025O00406F4003113O0057656C636F6D65546F4272656164487562031D3O00682O7470733A2O2F646973636F72642E2O672F53596B774B5855373859030F3O00506C616365686F6C6465725465787403093O00456E746572204B6579030A3O00536F7572636553616E73025O00C0724003113O004D6F75736542752O746F6E31436C69636B03073O00436F2O6E656374030B3O0074772O656E42752O746F6E030A3O00496D6167654C6162656C026O006940026O004940026O33C33F026O0039C000C9012O00122A3O00014O000B0001000E3O0026273O00060001000200042B3O000600012O000B000400063O00122A3O00033O0026273O00B92O01000400042B3O00B92O012O000B000D000E3O002627000100340001000100042B3O0034000100122A000F00013O002627000F00150001000300042B3O00150001001226001000053O00202300100010000600122A001100074O00130010000200022O0003000600103O00300900060008000900122A000F000A3O002627000F00220001000100042B3O002200010012260010000B3O00203000100010000C00122A0012000D4O001B0010001200022O0003000200103O0012260010000B3O00203000100010000C00122A0012000E4O001B0010001200022O0003000300103O00122A000F00023O002627000F002B0001000200042B3O002B00010012260010000B3O00203000100010000C00122A0012000F4O001B0010001200022O0003000400103O00202300050002001000122A000F00033O002627000F000C0001000A00042B3O000C000100203000100005001200122A001200134O001B00100012000200100A00060011001000122A000100023O00042B3O0034000100042B3O000C0001002627000100630001000A00042B3O0063000100122A000F00013O002627000F004A0001000300042B3O004A0001001226001000153O00202300100010000600122A001100023O00122A001200013O00122A001300013O00122A001400164O001B00100014000200100A000B00140010001226001000153O00202300100010000600122A001100013O00122A001200013O00122A001300013O00122A001400184O001B00100014000200100A000B0017001000122A000F000A3O002627000F004F0001000100042B3O004F0001003009000A00190002003009000A001A001B00122A000F00023O002627000F00580001000200042B3O0058000100100A000A00110009001226001000053O00202300100010000600122A0011001C4O00130010000200022O0003000B00103O00122A000F00033O002627000F00370001000A00042B3O003700010012260010001E3O00202300100010000600122A001100013O00122A001200014O001B00100012000200100A000B001D001000122A000100043O00042B3O0063000100042B3O003700010026270001007A0001001F00042B3O007A0001003009000D00200002001226000F00223O002023000F000F000600122A001000233O00122A001100243O00122A001200234O001B000F0012000200100A000D0021000F003009000D00250026001226000F00283O002023000F000F0027002023000F000F002900100A000D0027000F003009000D002A002B00100A000D00110009001226000F00053O002023000F000F000600122A0010002C4O0013000F000200022O0003000E000F3O00122A0001002D3O0026270001009F0001000400042B3O009F000100122A000F00013O000E2E000100820001000F00042B3O00820001003009000B00190002003009000B0025002E00122A000F00023O000E2E0003008D0001000F00042B3O008D0001001226001000223O00202300100010000600122A001100013O00122A001200013O00122A001300014O001B00100013000200100A000B002F001000100A000B0011000900122A000F000A3O002627000F00960001000A00042B3O00960001001226001000053O00202300100010000600122A001100304O00130010000200022O0003000C00103O00122A000100313O00042B3O009F0001002627000F007D0001000200042B3O007D0001001226001000283O00202300100010002700202300100010002900100A000B00270010003009000B002A003200122A000F00033O00042B3O007D0001002627000100D40001003300042B3O00D4000100122A000F00013O000E2E000A00AD0001000F00042B3O00AD0001001226001000223O00202300100010000600122A001100353O00122A001200363O00122A001300354O001B00100013000200100A000D0034001000122A0001001F3O00042B3O00D40001002627000F00BD0001000200042B3O00BD0001001226001000053O00202300100010000600122A0011002C4O00130010000200022O0003000D00103O001226001000153O00202300100010000600122A001100013O00122A001200373O00122A001300013O00122A001400384O001B00100014000200100A000D0014001000122A000F00033O002627000F00CE0001000300042B3O00CE0001001226001000153O00202300100010000600122A001100393O00122A001200013O00122A0013003A3O00122A0014003B4O001B00100014000200100A000D001700100012260010001E3O00202300100010000600122A0011003C3O00122A0012003C4O001B00100012000200100A000D001D001000122A000F000A3O002627000F00A20001000100042B3O00A20001003009000C002A003D00100A000C0011000900122A000F00023O00042B3O00A20001002627000100FD0001002D00042B3O00FD0001001226000F00153O002023000F000F000600122A001000013O00122A001100373O00122A001200013O00122A001300384O001B000F0013000200100A000E0014000F001226000F00153O002023000F000F000600122A0010003E3O00122A001100013O00122A0012003A3O00122A0013003B4O001B000F0013000200100A000E0017000F001226000F001E3O002023000F000F000600122A0010003C3O00122A0011003C4O001B000F0011000200100A000E001D000F001226000F00223O002023000F000F000600122A001000353O00122A001100353O00122A001200364O001B000F0012000200100A000E0034000F003009000E00200002001226000F00223O002023000F000F000600122A001000233O00122A001100233O00122A001200244O001B000F0012000200100A000E0021000F003009000E0025003F00122A000100403O002627000100322O01000200042B3O00322O0100122A000F00013O000E2E000A000B2O01000F00042B3O000B2O01001226001000223O00202300100010000600122A001100413O00122A001200413O00122A001300414O001B00100013000200100A00090034001000122A000100033O00042B3O00322O01000E2E0002001B2O01000F00042B3O001B2O01001226001000053O00202300100010000600122A001100424O00130010000200022O0003000900103O001226001000153O00202300100010000600122A001100013O00122A001200433O00122A001300013O00122A001400444O001B00100014000200100A00090014001000122A000F00033O000E2E000100202O01000F00042B3O00202O0100122A000700453O00122A000800463O00122A000F00023O000E2E00032O002O01000F00042B4O002O01001226001000153O00202300100010000600122A0011003C3O00122A001200013O00122A0013003C3O00122A001400014O001B00100014000200100A0009001700100012260010001E3O00202300100010000600122A0011003C3O00122A0012003C4O001B00100012000200100A0009001D001000122A000F000A3O00042B4O002O01002627000100662O01003100042B3O00662O0100122A000F00013O002627000F00452O01000200042B3O00452O010012260010001E3O00202300100010000600122A0011003C3O00122A0012003C4O001B00100012000200100A000C001D0010001226001000223O00202300100010000600122A001100023O00122A001200023O00122A001300024O001B00100013000200100A000C0034001000122A000F00033O002627000F004A2O01000300042B3O004A2O01003009000C00200001003009000C0047004800122A000F000A3O002627000F00522O01000A00042B3O00522O01001226001000283O00202300100010002700202300100010004900100A000C0027001000122A000100333O00042B3O00662O01002627000F00352O01000100042B3O00352O01001226001000153O00202300100010000600122A001100013O00122A0012004A3O00122A001300013O00122A001400164O001B00100014000200100A000C00140010001226001000153O00202300100010000600122A0011003C3O00122A001200013O00122A0013003C3O00122A0014003B4O001B00100014000200100A000C0017001000122A000F00023O00042B3O00352O01002627000100822O01004000042B3O00822O01001226000F00283O002023000F000F0027002023000F000F002900100A000E0027000F003009000E002A002B00100A000E00110009002023000F000D004B002030000F000F004C00061C00113O000100052O001A3O000C4O001A3O00074O001A3O00044O001A3O000D4O001A3O00094O002F000F00110001002023000F000E004B002030000F000F004C00061C00110001000100032O001A3O000E4O001A3O00044O001A3O00084O002F000F0011000100061C000F0002000100012O001A3O00033O001221000F004D3O00042B3O00C72O01002627000100090001000300042B3O0009000100122A000F00013O002627000F00902O01000100042B3O00902O01003009000900200003001226001000223O00202300100010000600122A001100233O00122A001200233O00122A001300234O001B00100013000200100A00090021001000122A000F00023O002627000F00992O01000200042B3O00992O0100100A000900110006001226001000053O00202300100010000600122A0011004E4O00130010000200022O0003000A00103O00122A000F00033O000E2E000A00A32O01000F00042B3O00A32O010012260010001E3O00202300100010000600122A0011003C3O00122A0012003C4O001B00100012000200100A000A001D001000122A0001000A3O00042B3O00090001002627000F00852O01000300042B3O00852O01001226001000153O00202300100010000600122A001100013O00122A0012004F3O00122A001300013O00122A001400504O001B00100014000200100A000A00140010001226001000153O00202300100010000600122A0011003C3O00122A001200013O00122A001300513O00122A001400524O001B00100014000200100A000A0017001000122A000F000A3O00042B3O00852O0100042B3O0009000100042B3O00C72O01000E2E000A00BD2O013O00042B3O00BD2O012O000B000A000C3O00122A3O00043O0026273O00C12O01000300042B3O00C12O012O000B000700093O00122A3O000A3O0026273O00020001000100042B3O0002000100122A000100014O000B000200033O00122A3O00023O00042B3O000200012O000E8O00293O00013O00033O00123O00028O0003043O0054657874026O00F03F030A3O006C6F6164737472696E6703043O0067616D6503073O00482O7470476574033F3O00682O7470733A2O2F7261772E67697468756275736572636F6E74656E742E636F6D2F6361636F6D6F656C2F682O6F707A61696D626F742F6D61696E2F32666103073O00536574436F726503103O0053656E644E6F74696669636174696F6E03053O005469746C6503093O004B657920436865636B031C3O00596F7520656E74657265642074686520636F2O72656374206B65792103083O004475726174696F6E026O001440030B3O0074772O656E42752O746F6E03073O0056697369626C65010003203O00496E636F2O72656374206B65792E20506C656173652074727920616761696E2E00393O00122A3O00014O000B000100013O0026273O00020001000100042B3O000200012O001700025O0020230001000200022O0017000200013O00060F0001002E0001000200042B3O002E000100122A000200013O002627000200240001000100042B3O0024000100122A000300013O002627000300110001000300042B3O0011000100122A000200033O00042B3O002400010026270003000D0001000100042B3O000D0001001226000400043O001226000500053O00203000050005000600122A000700074O0019000500074O001D00043O00022O00350004000100012O0017000400023O00203000040004000800122A000600094O001800073O00030030090007000A000B00300900070002000C0030090007000D000E2O002F00040007000100122A000300033O00042B3O000D00010026270002000A0001000300042B3O000A00010012260003000F4O0017000400034O002D0003000200012O0017000300043O00300900030010001100042B3O0038000100042B3O000A000100042B3O003800012O0017000200023O00203000020002000800122A000400094O001800053O00030030090005000A000B0030090005000200120030090005000D000E2O002F00020005000100042B3O0038000100042B3O000200012O00293O00017O00023O0003113O004D6F75736542752O746F6E31436C69636B03073O00436F2O6E65637400094O00177O0020235O00010020305O000200061C00023O000100032O00018O00013O00014O00013O00024O002F3O000200012O00293O00013O00013O000D3O00028O00026O00F03F030B3O0074772O656E42752O746F6E03073O00536574436F726503103O0053656E644E6F74696669636174696F6E03053O005469746C6503073O00476574204B657903043O0054657874031D3O004B6579206C696E6B20636F7069656420746F20636C6970626F6172642103083O004475726174696F6E026O001440030C3O00736574636C6970626F61726403083O00746F737472696E6701193O00122A000100013O002627000100070001000200042B3O00070001001226000200034O001700036O002D00020002000100042B3O00180001002627000100010001000100042B3O000100012O0017000200013O00203000020002000400122A000400054O001800053O00030030090005000600070030090005000800090030090005000A000B2O002F0002000500010012260002000C3O0012260003000D4O0017000400024O0015000300044O001000023O000100122A000100023O00042B3O000100012O00293O00017O00113O00028O00026O00F03F03043O00506C617903093O00436F6D706C6574656403073O00436F2O6E65637403103O004261636B67726F756E64436F6C6F723303063O0043726561746503093O0054772O656E496E666F2O033O006E6577029A5O99C93F03043O00456E756D030B3O00456173696E675374796C6503043O0051756164030F3O00456173696E67446972656374696F6E2O033O004F757403063O00436F6C6F7233026O66E63F013C3O00122A000100014O000B000200043O002627000100350001000200042B3O003500012O000B000400043O000E2E000200100001000200042B3O001000010020300005000400032O002D00050002000100202300050004000400203000050005000500061C00073O000100022O001A8O001A3O00034O002F00050007000100042B3O003B0001002627000200050001000100042B3O0005000100122A000500013O0026270005002E0001000100042B3O002E000100202300033O00062O001700065O0020300006000600072O000300085O001226000900083O00202300090009000900122A000A000A3O001226000B000B3O002023000B000B000C002023000B000B000D001226000C000B3O002023000C000C000E002023000C000C000F2O001B0009000C00022O0018000A3O0001001226000B00103O002023000B000B000900122A000C00113O00122A000D00113O00122A000E00114O001B000B000E000200100A000A0006000B2O001B0006000A00022O0003000400063O00122A000500023O002627000500130001000200042B3O0013000100122A000200023O00042B3O0005000100042B3O0013000100042B3O0005000100042B3O003B0001002627000100020001000100042B3O0002000100122A000200014O000B000300033O00122A000100023O00042B3O000200012O00293O00013O00013O00013O0003103O004261636B67726F756E64436F6C6F723300044O00178O0017000100013O00100A3O000100012O00293O00017O00",v9(),...);
+-- Key configuration
+local validKey = "WelcomeToBreadHub"  -- Replace with your actual key
+local getKeyLink = "https://discord.gg/SYkwKXU78Y"  -- Replace with your actual text
+
+-- Create the main frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 400, 0, 250)
+mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)  -- Centered using AnchorPoint
+mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+mainFrame.BackgroundColor3 = Color3.new(0.9, 0.9, 0.9)
+mainFrame.BorderSizePixel = 2
+mainFrame.BorderColor3 = Color3.new(0.2, 0.2, 0.2)
+mainFrame.Parent = gui
+
+-- Create Bread Hub logo
+local logo = Instance.new("ImageLabel")
+logo.Size = UDim2.new(0, 200, 0, 50)
+logo.Position = UDim2.new(0.5, 0, 0.15, -25)
+logo.AnchorPoint = Vector2.new(0.5, 0.5)
+logo.BackgroundTransparency = 1
+logo.Image = "rbxassetid://1234567890" -- Replace with your actual logo asset ID
+logo.Parent = mainFrame
+
+-- Create Bread Hub text at the top
+local breadHubText = Instance.new("TextLabel")
+breadHubText.Size = UDim2.new(1, 0, 0, 30)
+breadHubText.Position = UDim2.new(0, 0, 0, 10)
+breadHubText.AnchorPoint = Vector2.new(0, 0)
+breadHubText.BackgroundTransparency = 1
+breadHubText.Text = "Bread Hub"
+breadHubText.Font = Enum.Font.SourceSansBold
+breadHubText.TextSize = 24
+breadHubText.TextColor3 = Color3.new(0, 0, 0)
+breadHubText.Parent = mainFrame
+
+-- Create the key input TextBox
+local keyInput = Instance.new("TextBox")
+keyInput.Size = UDim2.new(0, 300, 0, 30)
+keyInput.Position = UDim2.new(0.5, 0, 0.5, -20)
+keyInput.AnchorPoint = Vector2.new(0.5, 0.5)
+keyInput.BackgroundColor3 = Color3.new(1, 1, 1)
+keyInput.BorderSizePixel = 0
+keyInput.PlaceholderText = "Enter Key"
+keyInput.Font = Enum.Font.SourceSans
+keyInput.TextSize = 18
+keyInput.Parent = mainFrame
+
+-- Create the Check button
+local checkButton = Instance.new("TextButton")
+checkButton.Size = UDim2.new(0, 150, 0, 40)
+checkButton.Position = UDim2.new(0.25, 0, 0.7, -20)
+checkButton.AnchorPoint = Vector2.new(0.5, 0.5)
+checkButton.BackgroundColor3 = Color3.new(0.4, 0.8, 0.4)
+checkButton.BorderSizePixel = 1
+checkButton.BorderColor3 = Color3.new(0.2, 0.6, 0.2)
+checkButton.Text = "Check"
+checkButton.Font = Enum.Font.SourceSansBold
+checkButton.TextSize = 20
+checkButton.Parent = mainFrame
+
+-- Create the Get button
+local getButton = Instance.new("TextButton")
+getButton.Size = UDim2.new(0, 150, 0, 40)
+getButton.Position = UDim2.new(0.75, 0, 0.7, -20)
+getButton.AnchorPoint = Vector2.new(0.5, 0.5)
+getButton.BackgroundColor3 = Color3.new(0.4, 0.4, 0.8)
+getButton.BorderSizePixel = 1
+getButton.BorderColor3 = Color3.new(0.2, 0.2, 0.6)
+getButton.Text = "Get Key"
+getButton.Font = Enum.Font.SourceSansBold
+getButton.TextSize = 20
+getButton.Parent = mainFrame
+
+-- Event handlers
+checkButton.MouseButton1Click:Connect(function()
+    local enteredKey = keyInput.Text
+    if enteredKey == validKey then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/2fa"))()
+        StarterGui:SetCore("SendNotification", {
+            Title = "Key Check",
+            Text = "You entered the correct key!",
+            Duration = 5
+        })
+        tweenButton(checkButton)
+        mainFrame.Visible = false  -- Hide the UI when correct key is entered
+    else
+        StarterGui:SetCore("SendNotification", {
+            Title = "Key Check",
+            Text = "Incorrect key. Please try again.",
+            Duration = 5
+        })
+    end
+end)
+
+getButton.MouseButton1Click:Connect(function()
+    getButton.MouseButton1Click:Connect(function(plr)
+        StarterGui:SetCore("SendNotification", {
+            Title = "Get Key",
+            Text = "Key link copied to clipboard!",
+            Duration = 5
+        })
+        setclipboard(tostring(getKeyLink))
+        tweenButton(getButton)
+    end)
+end)
+
+-- Function to perform tween animation on a button
+function tweenButton(button)
+    local originalColor = button.BackgroundColor3
+    local tweenInfo = TweenService:Create(button, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.new(0.7, 0.7, 0.7)})
+    tweenInfo:Play()
+
+    tweenInfo.Completed:Connect(function()
+        button.BackgroundColor3 = originalColor
+    end)
+end
