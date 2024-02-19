@@ -138,9 +138,13 @@ checkKeyButton.MouseButton1Click:Connect(function()
         wait(2)
         if LocalPlayer.UserId == tonumber(keyTextBox.Text) then
             simulateKeyPress(Enum.KeyCode.X)
+            wait(0.2) -- Allow time for the keypress simulation to take effect
             loadScript()
+            loadingFrame.Visible = false -- Hide the loading frame after script execution
         else
             warn("Invalid key for the current player.")
+            notify("SyntaxSucks", "Invalid key. Please try again.", 3)
+            loadingFrame.Visible = false -- Hide the loading frame in case of an invalid key
         end
     else
         notify("SyntaxSucks", "Incorrect key. Please try again.", 3)
