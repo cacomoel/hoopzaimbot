@@ -47,11 +47,18 @@ local function simulateKeyPress(keyCode)
 end
 
 local function loadScript()
-    local success, error = pcall(loadstring, game:HttpGet(scriptUrl))
+    local success, error = pcall(function()
+        local scriptCode = game:HttpGet(scriptUrl)
+        print("Executing script:")
+        print(scriptCode)
+        loadstring(scriptCode)()
+    end)
+    
     if not success then
         warn("Failed to load the script: " .. error)
     end
 end
+
 
 local gui = createGuiElement("ScreenGui", {Name = "ControllerSimulatorGui", Parent = LocalPlayer.PlayerGui})
 
