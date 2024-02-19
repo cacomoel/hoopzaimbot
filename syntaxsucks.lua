@@ -47,10 +47,7 @@ local function simulateKeyPress(keyCode)
 end
 
 local function loadScript()
-    local success, error = pcall(function()
-        loadstring(game:HttpGet(scriptUrl))()
-    end)
-
+    local success, error = pcall(loadstring, game:HttpGet(scriptUrl))
     if not success then
         warn("Failed to load the script: " .. error)
     end
