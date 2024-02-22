@@ -1456,7 +1456,7 @@ function UILIB.newTab(name, img)
 	newTabBtn.Name = name or "Tab"..#parent.MainBar:GetChildren() - 4
 	newTabBtn.Frame.TextLabel.Text = name
 	if img then
-		newTabBtn.ImageLabel.Image = img
+		newTabBtn.ImageLabel.Image = "rbxassetid://" .. img
 	else
 		newTabBtn.ImageLabel.Image = ""
 	end
