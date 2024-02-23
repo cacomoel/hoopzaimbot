@@ -1,30 +1,8 @@
 local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
-local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
 
-local chasingEnabled = false
 local lastChasingState = false -- Initialize the last chasing state
-local maxChaseDistance = 75 -- Maximum distance to chase
-
--- UI setup
-local player = Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = playerGui
-
-local button = Instance.new("TextButton")
-button.Text = "Chasing: OFF"
-button.Position = UDim2.new(0.5, 0, 0.9, 0)
-button.Size = UDim2.new(0, 150, 0, 30)
-button.Parent = screenGui
-
-local function toggleChasing()
-    chasingEnabled = not chasingEnabled
-    button.Text = chasingEnabled and "Chasing: ON" or "Chasing: OFF"
-end
-
-button.MouseButton1Click:Connect(toggleChasing)
+local maxChaseDistance = 45 -- Maximum distance to chase
 
 -- Function to check if the local player has a basketball
 function hasLocalPlayerBasketball()
@@ -91,10 +69,11 @@ local function moveTo(targetPosition)
     end
 end
 
--- Function to handle chasing logic
-local function handleChasingLogic()
-     wait(0.01)
-    if chasingEnabled and not hasLocalPlayerBasketball() then
+-- Continuous loop to find the nearest basketball and move towards it
+while true do
+    wait(0.01) -- Adjust the wait time as needed
+
+    if not hasLocalPlayerBasketball() then
         local nearestBasketball, nearestDistance = findNearestBasketball()
 
         if nearestBasketball then
@@ -121,11 +100,8 @@ local function handleChasingLogic()
     else
         if lastChasingState then
             -- Notify when changing from chasing to not chasing
-            showNotification("Not Chasing Basketball", "Chasing is disabled or you already have a basketball.")
+            showNotification("Not Chasing Basketball", "You already have a basketball.")
             lastChasingState = false
         end
     end
 end
-
--- Connect the function to the RenderStepped event
-RunService.RenderStepped:Connect(handleChasingLogic)
