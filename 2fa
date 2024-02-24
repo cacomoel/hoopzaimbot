@@ -131,7 +131,7 @@ else
 	local speedToggle = Main.newToggle("Speed Hack", "Enables speed hack", false, function(toggleState)
 		if toggleState then
 			speed = true
-			player.WalkSpeed = 5
+			player.WalkSpeed = tonumber(speedInput.Text) or 5
 		else
 			speed = false
 		end
@@ -141,19 +141,14 @@ else
 		if speed then
 			player.WalkSpeed = tonumber(text) or 5
 		else
-			OrionLib:MakeNotification({
-				Name = "Error!",
-				Content = "An error has occurred :(",
-				Image = "rbxassetid://4483345998",
-				Time = 5
-			})
+			-- Handle error
 		end
 	end)
 
 	local jumpToggle = Main.newToggle("Jump Hack", "Enables jump hack", false, function(toggleState)
 		if toggleState then
 			jump = true
-			player.JumpPower = 5
+			player.JumpPower = tonumber(jumpInput.Text) or 5
 		else
 			jump = false
 		end
@@ -163,14 +158,22 @@ else
 		if jump then
 			player.JumpPower = tonumber(text) or 5
 		else
-			OrionLib:MakeNotification({
-				Name = "Error!",
-				Content = "An error has occurred :(",
-				Image = "rbxassetid://4483345998",
-				Time = 5
-			})
+			-- Handle error
 		end
 	end)
+
+	-- Infinite loop to continuously check and update hacks
+	while true do
+		wait(1)  -- Adjust the wait time according to your needs
+
+		if speed then
+			player.WalkSpeed = tonumber(speedInput.Text) or 5
+		end
+
+		if jump then
+			player.JumpPower = tonumber(jumpInput.Text) or 5
+		end
+	end
 	
 	Main.newButton("Fly", "Enables fly", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/fly.lua", true))()
