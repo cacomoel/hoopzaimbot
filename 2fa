@@ -5,6 +5,7 @@ local gui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local speed = false
 local jump = false
+local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 local db = {}
 local player = Players.LocalPlayer.Character:FindFirstChild("Humanoid")
@@ -182,16 +183,170 @@ else
 		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
 	end)
 	
-	HoopzTab.newButton("Autoguard", "Enables autoguard", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/autoguard.lua", true))()
+	local lastChasingState = false
+	local maxChaseDistance = 45
+
+	local chasingCoroutine
+	local isChasing = false
+
+	local function hasLocalPlayerBasketball()
+		local localPlayer = Players.LocalPlayer
+		local basketball = localPlayer.Character and localPlayer.Character:FindFirstChild("Basketball")
+
+		return basketball and basketball:FindFirstChild("Ball") ~= nil
+	end
+
+	local function findNearestBasketball()
+		local localPlayer = Players.LocalPlayer
+		local basketballTools = {}
+
+		for _, player in pairs(Players:GetPlayers()) do
+			if player ~= localPlayer then
+				local basketball = player.Character and player.Character:FindFirstChild("Basketball")
+
+				if basketball and basketball:FindFirstChild("Ball") then
+					table.insert(basketballTools, basketball.Ball)
+				end
+			end
+		end
+
+		local nearestBasketball = nil
+		local nearestDistance = math.huge
+
+		local humanoidRootPart = localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+		if not humanoidRootPart then
+			return nil, nearestDistance
+		end
+
+		for _, ball in pairs(basketballTools) do
+			local distance = (humanoidRootPart.Position - ball.Position).magnitude
+
+			if distance < nearestDistance then
+				nearestDistance = distance
+				nearestBasketball = ball
+			end
+		end
+
+		return nearestBasketball, nearestDistance
+	end
+
+	local function showNotification(title, description)
+		StarterGui:SetCore("SendNotification", {
+			Title = title,
+			Text = description .. "\nMade by Jermy",
+			Duration = 2
+		})
+	end
+
+	local function moveTo(targetPosition)
+		local localPlayer = Players.LocalPlayer
+		local humanoid = localPlayer.Character and localPlayer.Character:FindFirstChildOfClass("Humanoid")
+
+		if humanoid then
+			humanoid:MoveTo(targetPosition)
+		end
+	end
+
+	local function toggleChasing(toggleState)
+		if toggleState and not isChasing then
+			chasingCoroutine = coroutine.create(function()
+				isChasing = true
+				while isChasing do
+					wait(0.01)
+
+					if not hasLocalPlayerBasketball() then
+						local nearestBasketball, nearestDistance = findNearestBasketball()
+
+						if nearestBasketball then
+							if nearestDistance < maxChaseDistance and not lastChasingState then
+								showNotification("Chasing Basketball", "Locked onto a basketball!")
+								lastChasingState = true
+							elseif nearestDistance >= maxChaseDistance and lastChasingState then
+								showNotification("Out of Range", "The basketball is out of range.")
+								lastChasingState = false
+							end
+
+							if nearestDistance < maxChaseDistance then
+								moveTo(nearestBasketball.Position)
+							end
+						else
+							if lastChasingState then
+								showNotification("Not Chasing Basketball", "No basketball found.")
+								lastChasingState = false
+							end
+						end
+					else
+						if lastChasingState then
+							showNotification("Not Chasing Basketball", "You already have a basketball.")
+							lastChasingState = false
+						end
+					end
+				end
+
+				if lastChasingState then
+					showNotification("Not Chasing Basketball", "Chasing stopped.")
+					lastChasingState = false
+				end
+			end)
+
+			coroutine.resume(chasingCoroutine)
+		elseif not toggleState and isChasing then
+			isChasing = false
+		end
+	end
+
+	-- Assuming you have a toggle implementation similar to the provided code
+	HoopzTab.newToggle("AutoGuard", "Auto guard the player with the ball", true, function(toggleState)
+		toggleChasing(toggleState)
 	end)
 	
-	HoopzTab.newButton("Ball Mag", "Enables ball magnet", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/magnet.lua"))()
+	local mag = true  -- This variable will control whether the functionality is enabled or disabled
+	local magRange = 10  -- Set your desired range
+
+	local function getClosestBasketball()
+		local closestDistance = math.huge
+		local closestBasketball = nil
+		for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+			if v.Name == "Ball" then
+				local distance = (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
+				if distance < closestDistance then
+					closestDistance = distance
+					closestBasketball = v
+				end
+			end
+		end
+		return closestBasketball
+	end
+
+	local humRootPart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+
+	local function enableMagFunctionality(toggleState)
+		mag = toggleState
+	end
+
+	-- Use the provided toggle to enable or disable the functionality
+	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", true, enableMagFunctionality)
+
+	spawn(function()
+		while true do
+			wait()
+			if mag then
+				local closestBall = getClosestBasketball()
+				if closestBall then
+					local magDistance = (humRootPart.Position - closestBall.Position).magnitude
+					if magDistance <= magRange then
+						firetouchinterest(humRootPart, closestBall, 0)
+						wait(0.001)
+						firetouchinterest(humRootPart, closestBall, 1)
+					end
+				end
+			end
+		end
 	end)
 
 	HoopzTab.newButton("Controller Silent Aim", "Enables controller silent aim", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controller.lua"))()
 		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
 	end)
 	
