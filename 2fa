@@ -358,9 +358,14 @@ else
 				if closestBall then
 					local magDistance = (humRootPart.Position - closestBall.Position).magnitude
 					if magDistance <= magRange then
-						firetouchinterest(humRootPart, closestBall, 0)
-						wait(0.001)
-						firetouchinterest(humRootPart, closestBall, 1)
+						local success, errorInfo = pcall(function()
+							firetouchinterest(humRootPart, closestBall, 0)
+							wait(0.001)
+							firetouchinterest(humRootPart, closestBall, 1)
+						end)
+						if not success then
+							warn("Error in touch events:", errorInfo)
+						end
 					end
 				end
 			end
