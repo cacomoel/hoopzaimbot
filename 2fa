@@ -350,34 +350,6 @@ else
 		end
 	end)
 	
-	local bypassEnabled = false
-
-	eventbypass = hookmetamethod(game, "_namecall", function(self, ...)
-		if bypassEnabled then
-			local args = {...}
-			local method = getnamecallmethod()
-			if self.Name == "shootingEvent" and args[1] and args[1] == "xd" and method == "FireServer" then
-				print("[Successfully Bypassed..]")
-				return;
-			end
-		end
-		return eventbypass(self, ...)
-	end)
-
-	wait(0.01);
-	print("Ended[ms.0.1]")
-
-	local toggleCallback = function(toggleState)
-		bypassEnabled = toggleState
-		if bypassEnabled then
-			print("Bypass Enabled")
-		else
-			print("Bypass Disabled")
-		end
-	end
-
-	HoopzTab.newToggle("Bypass", "Bypass events like traveling", false, toggleCallback)
-
 	spawn(function()
 		while true do
 			wait()
