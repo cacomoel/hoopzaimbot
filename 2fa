@@ -62,10 +62,10 @@ wait(1.5)
 	})
 	loadstring(game:HttpGet("https://pastebin.com/raw/CL6ngd2J"))()
 
-elseif game.PlaceId == 623694595 then
+elseif game.PlaceId == 623694595 or 3323720631 or 3323729375 or 5122329423 or 4923145720 then
 	OrionLib:MakeNotification({
 		Name = "Game Supported!",
-		Content = "Loading exploits for Phenom...",
+		Content = "Loading exploits for NBA Phenom...",
 		Image = "rbxassetid://4483345998",
 		Time = 5
 	})
