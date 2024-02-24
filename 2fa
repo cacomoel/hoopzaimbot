@@ -55,7 +55,7 @@ elseif game.PlaceId == 8204899140 then
 wait(1.5)
 	OrionLib:MakeNotification({
 		Name = "LOADED FF2 SCRIPT",
-		Content = "Loaded up sucessfully..." .. tostring("Again do people actually read this?"), -- no --- yes they do -- uno reverse --- black monkeys
+		Content = "Loaded up sucessfully..." .. ("Again do people actually read this?"), -- no --- yes they do -- uno reverse --- black monkeys
 		Description = "",
 		Image = "rbxassetid://14372116641",
 		Time = 5
@@ -249,7 +249,7 @@ else
 	local function showNotification(title, description)
 		StarterGui:SetCore("SendNotification", {
 			Title = title,
-			Text = description .. "\nMade by Jermy",
+			Text = description .. "\Made by Jermy/" .. "\Made by Sav/",
 			Duration = 2
 		})
 	end
@@ -342,6 +342,16 @@ else
 
 	-- Use the provided toggle to enable or disable the functionality
 	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
+
+	HoopzTab.newInput("Mag Range", "Set the magnetization range", tostring(magRange), function(text)
+		local newMagRange = tonumber(text)
+		if newMagRange then
+			magRange = newMagRange
+			print("Magnetization range set to: " .. magRange)
+		else
+			print("Invalid input. Please enter a valid number.")
+		end
+	end)
 
 	spawn(function()
 		while true do
