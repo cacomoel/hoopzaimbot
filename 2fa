@@ -316,8 +316,7 @@ else
 		toggleChasing(toggleState)
 	end)
 	
-	local mag = true  -- This variable will control whether the functionality is enabled or disabled
-	local magRange = 10  -- Set your desired range
+	local mag = false  -- This variable will control whether the functionality is enabled or disabled
 
 	local function getClosestBasketball()
 		local closestDistance = math.huge
@@ -342,6 +341,40 @@ else
 
 	-- Use the provided toggle to enable or disable the functionality
 	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
+	
+	HoopzTab.newInput("Range", "How far can u magnetize", function(text)
+		if text then
+		magRange = text
+		else
+			magRange = 10
+		end
+	end)
+	
+	local bypassEnabled = false
+
+	eventbypass = hookmetamethod(game, "_namecall", function(self, ...)
+		if bypassEnabled then
+			local args = {...}
+			local method = getnamecallmethod()
+			if self.Name == "shootingEvent" and args[1] and args[1] == "xd" and method == "FireServer" then
+				print("[Successfully Bypassed..]")
+				return;
+			end
+		end
+		return eventbypass(self, ...)
+	end)
+
+	wait(0.01);
+	print("Ended[ms.0.1]")
+
+	HoopzTab.newToggle("Bypass", "Bypass events like traveling", false, function(toggleState)
+		bypassEnabled = toggleState
+		if bypassEnabled then
+			print("Bypass Enabled")
+		else
+			print("Bypass Disabled")
+		end
+	end)
 
 	spawn(function()
 		while true do
