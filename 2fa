@@ -343,16 +343,6 @@ else
 	-- Use the provided toggle to enable or disable the functionality
 	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
 
-	HoopzTab.newInput("Mag Range", "Set the magnetization range", tostring(magRange), function(text)
-		local newMagRange = tonumber(text)
-		if newMagRange then
-			magRange = newMagRange
-			print("Magnetization range set to: " .. magRange)
-		else
-			print("Invalid input. Please enter a valid number.")
-		end
-	end)
-
 	spawn(function()
 		while true do
 			wait()
