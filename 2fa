@@ -306,7 +306,7 @@ else
 	local humRootPart = Players.LocalPlayer.Character.HumanoidRootPart
 
 	-- Reusing the toggle functionality
-	tab.newToggle("ChaseToggle", "Toggle Chasing", true, function(toggleState)
+	HoopzTab.newToggle("ChaseToggle", "Toggle Chasing", true, function(toggleState)
 		chaseEnabled = toggleState
 		if chaseEnabled then
 			showNotification("Chasing Enabled", "Now chasing basketballs.")
