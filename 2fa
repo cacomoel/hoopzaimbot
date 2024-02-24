@@ -280,9 +280,10 @@ else
 	
 	-- end of toggle (chase)
 	
-	-- start of toggle (mag)
-	local magRange = 25 -- Set your desired range here
-	local magEnabled = true -- Initialize the chasing state
+	local magRange = 10 -- Set your desired range here
+
+	-- Reusing the toggle from the previous script
+	local chaseEnabled = true -- Initialize the chasing state
 
 	function getClosestBasketball()
 		local closestDistance = math.huge
@@ -304,24 +305,20 @@ else
 
 	local humRootPart = Players.LocalPlayer.Character.HumanoidRootPart
 
-	-- Toggle functionality
-	HoopzTab.newToggle("MagToggle", "Toggle Magnet", true, function(toggleState)
-		magEnabled = toggleState
-		if magEnabled then
-			showNotification("Magnet Enabled", "Attracting basketballs")
+	-- Reusing the toggle functionality
+	tab.newToggle("ChaseToggle", "Toggle Chasing", true, function(toggleState)
+		chaseEnabled = toggleState
+		if chaseEnabled then
+			showNotification("Chasing Enabled", "Now chasing basketballs.")
 		else
-			StarterGui:SetCore("SendNotification", {
-				Title = "Magnet Disabled",
-				Text = "No longer attracting basketballs.",
-				Duration = 2
-			})
+			showNotification("Chasing Disabled", "No longer chasing basketballs.")
 		end
 	end)
 
-	spawn(function()
-		while magEnabled do
-			wait()
+	while true do
+		wait(0.01)
 
+		if chaseEnabled then
 			local closestBasketball = getClosestBasketball()
 
 			if closestBasketball then
@@ -334,7 +331,7 @@ else
 				end
 			end
 		end
-	end)
+	end
 
 	HoopzTab.newButton("Controller Silent Aim", "Enables controller silent aim", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controllermap.lua"))()
