@@ -370,6 +370,33 @@ else
 		end
 	end)
 
+	local GUI = game:GetService("StarterGui")
+	local eventbypass
+	local bypassEnabled = false
+
+	eventbypass = hookmetamethod(game, "__namecall", function(self, ...)
+		local args = {...}
+		local method = getnamecallmethod()
+
+		if bypassEnabled and self.Name == "shootingEvent" and args[1] and args[1] == "xd" and method == "FireServer" then
+			print("[Successfully Bypassed]")
+			return;
+		end
+	end)
+
+	wait(0.01);
+	print("Ended [ms.0.1]")
+
+	-- Toggle
+	HoopzTab.newToggle("Anti Travel", "Makes it so you cant travel", false, function(toggleState)
+		bypassEnabled = toggleState
+		if bypassEnabled then
+			print("Bypass On")
+		else
+			print("Bypass Off")
+		end
+	end)
+
 	HoopzTab.newButton("Controller Silent Aim", "Enables controller silent aim", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controller.lua"))()
 		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
