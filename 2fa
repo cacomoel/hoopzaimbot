@@ -2,12 +2,13 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/o"))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local gui = game:GetService("StarterGui")
+local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local speed = false
 local jump = false
+local Workspace = game:GetService("Workspace")
 local db = {}
 local player = Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-local Window = DrRayLibrary:Load("Bread Hub", "Default")
 -- Locals end
 
 -- Detect games
@@ -109,6 +110,9 @@ elseif game.PlaceId == 6569480109 then
 	wait(1)
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Streetball-Silent-Aim/main/SilentAimbot.lua"))()
 else
+	
+	local Window = DrRayLibrary:Load("Bread Hub", "Default")
+	
 	-- Universal hub start
 	local Main = DrRayLibrary.newTab("Universal", "10742722733")
 	
@@ -179,12 +183,157 @@ else
 		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
 	end)
 	
-	HoopzTab.newButton("Autoguard", "Enables autoguard", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/autoguard.lua", true))()
+	-- Autoguard toggle
+
+	local chaseEnabled = true -- Initialize the chasing state
+	local maxChaseDistance = 45 -- Maximum distance to chase
+
+	-- Function to check if the local player has a basketball
+	function hasLocalPlayerBasketball()
+		local localPlayer = Players.LocalPlayer
+		local basketball = localPlayer.Character and localPlayer.Character:FindFirstChild("Basketball")
+
+		return basketball and basketball:FindFirstChild("Ball") ~= nil
+	end
+
+	-- Function to find the nearest basketball tool in the workspace
+	function findNearestBasketball()
+		local localPlayer = Players.LocalPlayer
+		local basketballTools = {}
+
+		-- Collect all basketball tools from all players in the workspace
+		for _, player in pairs(Players:GetPlayers()) do
+			if player ~= localPlayer then
+				local basketball = player.Character and player.Character:FindFirstChild("Basketball")
+
+				if basketball and basketball:FindFirstChild("Ball") then
+					table.insert(basketballTools, basketball.Ball)
+				end
+			end
+		end
+
+		-- Find the nearest basketball tool
+		local nearestBasketball = nil
+		local nearestDistance = math.huge -- Initialize to a large finite value
+
+		local humanoidRootPart = localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+		if not humanoidRootPart then
+			return nil, nearestDistance
+		end
+
+		for _, ball in pairs(basketballTools) do
+			local distance = (humanoidRootPart.Position - ball.Position).magnitude
+
+			if distance < nearestDistance then
+				nearestDistance = distance
+				nearestBasketball = ball
+			end
+		end
+
+		return nearestBasketball, nearestDistance
+	end
+
+	-- Function to show a notification with credits
+	local function showNotification(title, description)
+		StarterGui:SetCore("SendNotification", {
+			Title = title,
+			Text = description .. "\nMade by Jermy",
+			Duration = 2
+		})
+	end
+
+	-- Move towards the target position
+	local function moveTo(targetPosition)
+		local localPlayer = Players.LocalPlayer
+		local humanoid = localPlayer.Character and localPlayer.Character:FindFirstChildOfClass("Humanoid")
+
+		if humanoid then
+			humanoid:MoveTo(targetPosition)
+		end
+	end
+
+	-- Toggle functionality
+	HoopzTab.newToggle("ChaseToggle", "Toggle Chasing", true, function(toggleState)
+		chaseEnabled = toggleState
+		if chaseEnabled then
+			showNotification("Chasing Enabled", "Now chasing basketballs.")
+		else
+			showNotification("Chasing Disabled", "No longer chasing basketballs.")
+		end
 	end)
+
+	-- Continuous loop to find the nearest basketball and move towards it
+	while true do
+		wait(0.01) -- Adjust the wait time as needed
+
+		if chaseEnabled and not hasLocalPlayerBasketball() then
+			local nearestBasketball, nearestDistance = findNearestBasketball()
+
+			if nearestBasketball then
+				if nearestDistance < maxChaseDistance then
+					moveTo(nearestBasketball.Position)
+				end
+			end
+		end
+	end
 	
-	HoopzTab.newButton("Ball Mag", "Enables ball magnet", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/magnet.lua"))()
+	-- end of toggle (chase)
+	
+	-- start of toggle (mag)
+	local magRange = 25 -- Set your desired range here
+	local magEnabled = true -- Initialize the chasing state
+
+	function getClosestBasketball()
+		local closestDistance = math.huge
+		local closestBasketball = nil
+
+		for _, v in pairs(Workspace:GetDescendants()) do
+			if v.Name == "Ball" then
+				local distance = (Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
+
+				if distance < closestDistance then
+					closestDistance = distance
+					closestBasketball = v
+				end
+			end
+		end
+
+		return closestBasketball
+	end
+
+	local humRootPart = Players.LocalPlayer.Character.HumanoidRootPart
+
+	-- Toggle functionality
+	HoopzTab.newToggle("MagToggle", "Toggle Magnet", true, function(toggleState)
+		magEnabled = toggleState
+		if magEnabled then
+			showNotification("Magnet Enabled", "Attracting basketballs")
+		else
+			StarterGui:SetCore("SendNotification", {
+				Title = "Magnet Disabled",
+				Text = "No longer attracting basketballs.",
+				Duration = 2
+			})
+		end
+	end)
+
+	spawn(function()
+		while magEnabled do
+			wait()
+
+			local closestBasketball = getClosestBasketball()
+
+			if closestBasketball then
+				local magDistance = (humRootPart.Position - closestBasketball.Position).magnitude
+
+				if magDistance <= magRange then
+					firetouchinterest(humRootPart, closestBasketball, 0)
+					wait(0.001)
+					firetouchinterest(humRootPart, closestBasketball, 1)
+				end
+			end
+		end
 	end)
 
 	HoopzTab.newButton("Controller Silent Aim", "Enables controller silent aim", function()
