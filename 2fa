@@ -367,14 +367,16 @@ else
 	wait(0.01);
 	print("Ended[ms.0.1]")
 
-	HoopzTab.newToggle("Bypass", "Bypass events like traveling", false, function(toggleState)
+	local toggleCallback = function(toggleState)
 		bypassEnabled = toggleState
 		if bypassEnabled then
 			print("Bypass Enabled")
 		else
 			print("Bypass Disabled")
 		end
-	end)
+	end
+
+	HoopzTab.newToggle("Bypass", "Bypass events like traveling", false, toggleCallback)
 
 	spawn(function()
 		while true do
