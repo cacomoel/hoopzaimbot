@@ -162,18 +162,24 @@ else
 		end
 	end)
 
-	-- Infinite loop to continuously check and update hacks
-	while true do
-		wait(1)  -- Adjust the wait time according to your needs
+	-- Function to continuously check and update hacks
+	local function updateHacks()
+		while true do
+			wait(1)  -- Adjust the wait time according to your needs
 
-		if speed then
-			player.WalkSpeed = tonumber(speedInput.Text) or 5
-		end
+			if speed then
+				player.WalkSpeed = tonumber(speedInput.Text) or 5
+			end
 
-		if jump then
-			player.JumpPower = tonumber(jumpInput.Text) or 5
+			if jump then
+				player.JumpPower = tonumber(jumpInput.Text) or 5
+			end
 		end
 	end
+
+	-- Create a coroutine and resume it
+	local hacksCoroutine = coroutine.create(updateHacks)
+	coroutine.resume(hacksCoroutine)
 	
 	Main.newButton("Fly", "Enables fly", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/fly.lua", true))()
