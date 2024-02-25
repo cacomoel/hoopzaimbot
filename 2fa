@@ -351,18 +351,6 @@ else
 		end
 	end)
 
-	humRootPart.InputBegan:Connect(function(input, gameProcessedEvent)
-		if mag and not gameProcessedEvent then
-			local closestBall = getClosestBasketball()
-			if closestBall then
-				local magDistance = (humRootPart.Position - closestBall.Position).magnitude
-				if magDistance <= magRange then
-					closestBall.CFrame = humRootPart.CFrame  -- Set the ball's position to the player's position
-				end
-			end
-		end
-	end)
-
 	HoopzTab.newButton("Controller Silent Aim", "Enables controller silent aim", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controller.lua"))()
 		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
@@ -398,3 +386,17 @@ else
 	-- End of other
 end
 ---- FF2 HUB 
+
+
+-- keep this at the end at all times
+humRootPart.InputBegan:Connect(function(input, gameProcessedEvent)
+	if mag and not gameProcessedEvent then
+		local closestBall = getClosestBasketball()
+		if closestBall then
+			local magDistance = (humRootPart.Position - closestBall.Position).magnitude
+			if magDistance <= magRange then
+				closestBall.CFrame = humRootPart.CFrame  -- Set the ball's position to the player's position
+			end
+		end
+	end
+end)
