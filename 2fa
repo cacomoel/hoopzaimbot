@@ -317,11 +317,12 @@ else
 	end)
 	
 	local mag = false  -- This variable will control whether the functionality is enabled or disabled
+	local magRange = 10  -- Set a default value for the magnetization range
 
 	local function getClosestBasketball()
 		local closestDistance = math.huge
 		local closestBasketball = nil
-		for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+		for _, v in pairs(game:GetService("Workspace"):GetDescendants()) do
 			if v.Name == "Ball" then
 				local distance = (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
 				if distance < closestDistance then
@@ -341,32 +342,22 @@ else
 
 	-- Use the provided toggle to enable or disable the functionality
 	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
-	
+
 	HoopzTab.newInput("Range", "How far can u magnetize", function(text)
 		if text then
-		magRange = text
+			magRange = tonumber(text) or magRange
 		else
 			magRange = 10
 		end
 	end)
-	
-	spawn(function()
-		while true do
-			wait()
-			if mag then
-				local closestBall = getClosestBasketball()
-				if closestBall then
-					local magDistance = (humRootPart.Position - closestBall.Position).magnitude
-					if magDistance <= magRange then
-						local success, errorInfo = pcall(function()
-							firetouchinterest(humRootPart, closestBall, 0)
-							wait(0.001)
-							firetouchinterest(humRootPart, closestBall, 1)
-						end)
-						if not success then
-							warn("Error in touch events:", errorInfo)
-						end
-					end
+
+	humRootPart.InputBegan:Connect(function(input, gameProcessedEvent)
+		if mag and not gameProcessedEvent then
+			local closestBall = getClosestBasketball()
+			if closestBall then
+				local magDistance = (humRootPart.Position - closestBall.Position).magnitude
+				if magDistance <= magRange then
+					closestBall.CFrame = humRootPart.CFrame  -- Set the ball's position to the player's position
 				end
 			end
 		end
