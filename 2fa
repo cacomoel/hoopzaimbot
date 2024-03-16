@@ -185,16 +185,11 @@ else
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/fly.lua", true))()
 	end)
 
-	HoopzTab.newButton("Tap to Shoot", "Enables tap to shoot", function()
-		local Script = game:HttpGet("https://raw.githubusercontent.com/6ce/Hoopz-Silent-Aims/main/FindPartOnRayWithIgnoreList.lua", true)
-		loadstring(Script)()
-	end)
-
 	HoopzTab.newButton("Range Indicator", "Enables range indicator", function()
 		loadstring(game:HttpGet("https://github.com/cacomoel/hoopzaimbot/raw/main/Indicator.lua"))()
 	end)
 
-	HoopzTab.newButton("x to Shoot", "Enables x to shoot", function()
+	HoopzTab.newButton("Silent Aim", "Jump to shoot", function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/aimbot.lua"))()
 	end)
 
@@ -341,7 +336,7 @@ else
 	end
 
 	-- Use the provided toggle to enable or disable the functionality
-	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
+	HoopzTab.newToggle("Ball Mag (Not Working)", "Magnetize the ball towards you", false, enableMagFunctionality)
 
 	HoopzTab.newInput("Range", "How far can u magnetize", function(text)
 		if text then
