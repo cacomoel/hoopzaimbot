@@ -146,13 +146,6 @@ else
 	end)
 
 	local jumpToggle = Main.newToggle("Jump Hack", "Enables jump hack", false, function(toggleState)
-		if toggleState then
-			jump = true
-			player.JumpPower = tonumber(jumpInput.Text) or 5
-		else
-			jump = false
-		end
-	end)
 
 	local jumpInput = Main.newInput("Jump", "Set jump value", function(text)
 		if jump then
@@ -189,17 +182,13 @@ else
 		loadstring(game:HttpGet("https://github.com/cacomoel/hoopzaimbot/raw/main/Indicator.lua"))()
 	end)
 
-	-- Define Toggle Function
-	HoopzTab.newToggle("Silent Aim", "Enables Silent Aim", false, function(toggleState)
-		if toggleState then
-			_G.Aimbot = true
-		else
-			_G.Aimbot = false
-		end
+	Main.newToggle("Silent Aim", "Enables Silent Aim", false, function(toggleState)
+		_G.Aimbot = toggleState		
 	end)
 
-	-- Disconnect previously connected events if any
+	
 	local reset = false
+
 	pcall(
 		function()
 			if _G.stepped then
@@ -219,30 +208,62 @@ else
 		end
 	)
 
-	-- Get LocalPlayer and Services
 	local plr = game.Players.LocalPlayer
 	local uis = game:GetService("UserInputService")
 	local rs = game:GetService("RunService")
+
 	local shootingEvent = game:GetService("ReplicatedStorage").shootingEvent
 
-	-- Move PracticeArea to Courts if exists
 	if workspace:FindFirstChild("PracticeArea") then
 		workspace.PracticeArea.Parent = workspace.Courts
 	end
 
-	-- Initialize Variables
 	local jumping = false
+
+	for i, v in pairs(getconnections(game:GetService("UserInputService").TouchTapInWorld)) do
+		for z, x in pairs(getupvalues(v.Function)) do
+			if type(x) == "table" and rawget(x, 1) then
+				_G.method = x
+			elseif z == 10 then
+				_G.key = x
+			end
+		end
+	end
+
+	for i, v in pairs(getconnections(plr.Character.HumanoidRootPart:GetPropertyChangedSignal("Size"))) do
+		v:Disable()
+	end
+
+	for i, v in pairs(getconnections(plr.Character.HumanoidRootPart:GetPropertyChangedSignal("Color"))) do
+		v:Disable()
+	end
+
+	for i, v in pairs(getconnections(plr.Character.HumanoidRootPart:GetPropertyChangedSignal("BrickColor"))) do
+		v:Disable()
+	end
+
+	for i, v in pairs(getconnections(plr.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"))) do
+		v:Disable()
+	end
+
+	local ground
+
+	local part = workspace:FindPartOnRay(Ray.new(plr.Character.Torso.Position, Vector3.new(0, -100, 5)))
+	if part then
+		ground = part
+	end
+
 	local tracking = false
 	local player
-	local hasBall = false
 
-	-- Function to Update Nearest Player With Ball
 	function updateNearestPlayerWithBall()
 		local dist = 9e9
 		for i, v in pairs(game.Players:GetPlayers()) do
-			if v.Name ~= plr.Name and v.Character and v.Character:FindFirstChild("Basketball") and
+			if
+				v.Name ~= plr.Name and v.Character and v.Character:FindFirstChild("Basketball") and
 				not plr.Character:FindFirstChild("Basketball") and
-				(plr.Character.Torso.Position - v.Character.Torso.Position).Magnitude < 50 then
+				(plr.Character.Torso.Position - v.Character.Torso.Position).Magnitude < 50
+			then
 				local mag = (plr.Character.Torso.Position - v.Character.Torso.Position).Magnitude
 				if dist > mag then
 					dist = mag
@@ -252,24 +273,57 @@ else
 		end
 	end
 
-	-- Handle Shooting Event
+	if _G.hook ~= nil then
+		_G.hook = ""
+		_G.hook =
+			hookmetamethod(
+				game,
+				"__index",
+				newcclosure(
+					function(self, idx)
+						if tostring(self) == "HumanoidRootPart" and idx == "Size" then
+						return Vector3.new(2, 2, 1)
+					elseif tostring(self) == "HumanoidRootPart" and idx == "BrickColor" then
+						return BrickColor.new("Medium stone grey")
+					elseif tostring(self) == "HumanoidRootPart" and idx == "Color" then
+						return Color3.fromRGB(163, 162, 165)
+					elseif tostring(self) == "Humanoid" and idx == "WalkSpeed" then
+						return 16
+					end
+						return hook(self, idx)
+					end
+				)
+			)
+	end
+
 	shootingEvent.OnClientEvent:Connect(
 		function(newKey)
 			_G.key = newKey
 		end
 	)
 
-	-- Function to Determine Power
+	function setup()
+		local dist, goal = 9e9, nil
+		for i, v in pairs(workspace.Courts:GetDescendants()) do
+			if v.Name == "Swish" and v:IsA("Sound") and plr.Character and plr.Character:FindFirstChild("Torso") then
+				local mag = (plr.Character.Torso.Position - v.Parent.Position).Magnitude
+				if dist > mag then
+					dist = mag
+					goal = v.Parent
+				end
+			end
+		end
+		return dist, goal
+	end
+
 	function power()
 		return plr.Power
 	end
 
-	-- Function to Change Power
 	function changePower(goal)
 		power().Value = goal
 	end
 
-	-- Function to Define Table
 	function table(a, b)
 		local args = {
 			X1 = a.X,
@@ -290,11 +344,11 @@ else
 		}
 	end
 
-	-- Function to Determine Arc
 	function arc()
 		local dist, goal = setup()
 
 		dist = math.floor(dist)
+		print(dist)
 		if dist == 12 or dist == 13 then
 			return 15
 		elseif dist == 14 or dist == 15 then
@@ -382,7 +436,6 @@ else
 		end
 	end
 
-	-- Function to Get Nearest Part
 	function getNearestPart(torso)
 		local dist, part = 9e9
 		for i, v in pairs(plr.Character:GetChildren()) do
@@ -397,7 +450,6 @@ else
 		return part
 	end
 
-	-- Stepped Function
 	function stepped()
 		pcall(
 			function()
@@ -409,10 +461,6 @@ else
 					dist = math.floor(dist)
 
 					if root and hasBall then
-						root.Size = Vector3.new(2.1, 2.1, 1.1)
-						root.BrickColor = BrickColor.new("Lime green")
-						root.Material = Enum.Material.Neon
-
 						if dist >= 13 and dist <= 16 then
 							changePower(30)
 							root.Transparency = 0
@@ -464,6 +512,34 @@ else
 
 				updateNearestPlayerWithBall()
 
+				if _G.WS ~= 16 and plr.Character:WaitForChild("Humanoid").WalkSpeed ~= 0 then
+					plr.Character:WaitForChild("Humanoid").WalkSpeed = _G.WS
+				end
+
+				if
+					tracking and player and plr.Character and plr.Character:FindFirstChild("Humanoid") and
+					not plr.Character:FindFirstChild("Basketball") and
+					player.Character and
+					player.Character:FindFirstChild("Basketball")
+				then
+					plr.Character.Humanoid:MoveTo(
+						player.Character.Basketball:FindFirstChildOfClass("Part").Position +
+							player.Character.Torso.CFrame.LookVector +
+							((player.Character.Humanoid.MoveDirection * 2) + (plr.Character.Torso.Velocity.Unit * 3))
+					)
+
+					if (player.Character.Torso.Position.Y - ground.Position.Y) > 2.5 then
+						plr.Character.Humanoid.Jump = true
+					end
+				elseif
+					tracking and player ~= nil and player.Character and plr.Character and
+					plr.Character:FindFirstChild("Basketball") or
+					not player.Character:FindFirstChild("Basketball")
+				then
+					tracking = false
+					return
+				end
+
 				for i, v in pairs(game.Players:GetPlayers()) do
 					if (v.Name ~= plr.Name and v.Character and plr.Character) and _G.Reach then
 						local nearestPart = getNearestPart(v.Character.Torso)
@@ -486,27 +562,28 @@ else
 		)
 	end
 
-	-- Function to Handle Shooting
 	function shoot()
 		local dist, goal = setup()
 		local pwr = power()
 		local arc = arc()
 
 		if arc ~= nil and plr.Character and plr.Character:FindFirstChild("Humanoid") then
-			local args = table(
-				plr.Character.Torso.Position,
-				(goal.Position + Vector3.new(0, arc, 0) - plr.Character.HumanoidRootPart.Position +
-					plr.Character.Humanoid.MoveDirection).Unit
-			)
+			local args =
+				table(
+					plr.Character.Torso.Position,
+					(goal.Position + Vector3.new(0, arc, 0) - plr.Character.HumanoidRootPart.Position +
+						plr.Character.Humanoid.MoveDirection).Unit
+				)
 
 			shootingEvent:FireServer(plr.Character.Basketball, pwr.Value, args, _G.key)
 		end
 	end
 
-	-- Function to Handle Jumping
 	function jumped()
-		if _G.Aimbot and plr.Character and hasBall and plr.Character:FindFirstChild("HumanoidRootPart") and
-			plr.Character.HumanoidRootPart.Transparency == 0 then
+		if
+			_G.Aimbot and plr.Character and hasBall and plr.Character:FindFirstChild("HumanoidRootPart") and
+			plr.Character.HumanoidRootPart.Transparency == 0
+		then
 			jumping = true
 			task.wait(0.325)
 			shoot()
@@ -515,7 +592,6 @@ else
 		end
 	end
 
-	-- Function to Handle Added Child
 	function added(v)
 		if v.Name == "Basketball" then
 			task.wait(0.5)
@@ -523,14 +599,12 @@ else
 		end
 	end
 
-	-- Function to Handle Removed Child
 	function removed(v)
 		if v.Name == "Basketball" then
 			hasBall = false
 		end
 	end
 
-	-- Function to Handle Input Began
 	function began(key, gpe)
 		if not gpe and key.KeyCode == Enum.KeyCode.U and _G.Autogaurd then
 			updateNearestPlayerWithBall()
@@ -542,37 +616,36 @@ else
 		end
 	end
 
-	-- Connect Events
 	_G.input = plr.Character.Humanoid.Jumping:Connect(jumped)
 	_G.added = plr.Character.ChildAdded:Connect(added)
 	_G.removed = plr.Character.ChildRemoved:Connect(removed)
 	_G.stepped = rs.Stepped:Connect(stepped)
 	_G.began = uis.InputBegan:Connect(began)
 
-	-- Handle Character Added
-	_G.charAdded = plr.CharacterAdded:Connect(
-		function(ch)
-			_G.input = ch:WaitForChild("Humanoid").Jumping:Connect(jumped)
-			_G.added = ch.ChildAdded:Connect(added)
-			_G.removed = ch.ChildRemoved:Connect(removed)
+	_G.charAdded =
+		plr.CharacterAdded:Connect(
+			function(ch)
+				_G.input = ch:WaitForChild("Humanoid").Jumping:Connect(jumped)
+				_G.added = ch.ChildAdded:Connect(added)
+				_G.removed = ch.ChildRemoved:Connect(removed)
 
-			for i, v in pairs(getconnections(ch:WaitForChild("HumanoidRootPart"):GetPropertyChangedSignal("Size"))) do
+				for i, v in pairs(getconnections(ch:WaitForChild("HumanoidRootPart"):GetPropertyChangedSignal("Size"))) do
 				v:Disable()
 			end
-			for i, v in pairs(getconnections(ch:WaitForChild("HumanoidRootPart"):GetPropertyChangedSignal("BrickColor"))) do
+				for i, v in pairs(getconnections(ch:WaitForChild("HumanoidRootPart"):GetPropertyChangedSignal("BrickColor"))) do
 				v:Disable()
 			end
-			for i, v in pairs(getconnections(ch:WaitForChild("HumanoidRootPart"):GetPropertyChangedSignal("Color"))) do
+				for i, v in pairs(getconnections(ch:WaitForChild("HumanoidRootPart"):GetPropertyChangedSignal("Color"))) do
 				v:Disable()
 			end
-			for i, v in pairs(getconnections(ch:WaitForChild("Humanoid"):GetPropertyChangedSignal("WalkSpeed"))) do
+				for i, v in pairs(getconnections(ch:WaitForChild("Humanoid"):GetPropertyChangedSignal("WalkSpeed"))) do
 				v:Disable()
 			end
-		end
-	)
+			end
+			)
+		
+	-- end of aimbot
 
-	-- end start chasing.
-	
 	local lastChasingState = false
 	local maxChaseDistance = 45
 
