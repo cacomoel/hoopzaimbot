@@ -227,33 +227,6 @@ else
 	local uis = game:GetService("UserInputService")
 	local rs = game:GetService("RunService")
 
-	local lib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
-	local window = lib:MakeWindow({Name = "Magnet's Hoopz UI"})
-	local main = window:MakeTab({Name = "Main"})
-
-	main:AddToggle(
-		{
-			Name = "Aimbot",
-			Default = false,
-			Callback = function(v)
-				_G.Aimbot = v
-			end
-		}
-	)
-	main:AddSlider(
-		{
-			Name = "WalkSpeed",
-			Min = 16,
-			Max = 19,
-			Default = 16,
-			Color = Color3.fromRGB(80, 80, 255),
-			Increment = 0.1,
-			Callback = function(v)
-				_G.WS = v
-			end
-		}
-	)
-
 	local shootingEvent = game:GetService("ReplicatedStorage").shootingEvent
 
 	if workspace:FindFirstChild("PracticeArea") then
