@@ -476,10 +476,6 @@ else
 					dist = math.floor(dist)
 
 					if root and hasBall then
-						root.Size = Vector3.new(2.1, 2.1, 1.1)
-						root.BrickColor = BrickColor.new("Lime green")
-						root.Material = Enum.Material.Neon
-
 						if dist >= 13 and dist <= 16 then
 							changePower(30)
 							root.Transparency = 0
