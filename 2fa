@@ -201,6 +201,14 @@ else
 			_G.Aimbot = false
 		end
 	end)
+	
+	HoopzTab.newToggle("Reach", "Take the ball from faraway", false, function(toggleState)
+		if toggleState then
+			_G.Reach = true
+		else
+			_G.Reach = false
+		end
+	end)
 
 	local reset = false
 
@@ -226,10 +234,6 @@ else
 	local plr = game.Players.LocalPlayer
 	local uis = game:GetService("UserInputService")
 	local rs = game:GetService("RunService")
-
-	local lib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
-	local window = lib:MakeWindow({Name = "Magnet's Hoopz UI"})
-	local main = window:MakeTab({Name = "Main"})
 
 	local shootingEvent = game:GetService("ReplicatedStorage").shootingEvent
 
@@ -795,40 +799,7 @@ else
 		mag = toggleState
 	end
 
-	-- Use the provided toggle to enable or disable the functionality
-	HoopzTab.newToggle("Ball Mag", "Magnetize the ball towards you", false, enableMagFunctionality)
-
-	HoopzTab.newInput("Range", "How far can u magnetize", function(text)
-		if text then
-			magRange = tonumber(text) or magRange
-		else
-			magRange = 10
-		end
-	end)
-
 	local humRootPart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-
-	spawn(function()
-		while mag do
-			wait()
-			local magDistance = (humRootPart.Position - getClosestBasketball().Position).magnitude
-			if magDistance <= magRange then
-				firetouchinterest(humRootPart, getClosestBasketball(), 0)
-				wait(0.001)
-				firetouchinterest(humRootPart, getClosestBasketball(), 1)
-			end
-		end
-	end)
-
-	HoopzTab.newButton("Controller Silent Aim", "Enables controller silent aim", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/controller.lua"))()
-		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
-	end)
-
-	HoopzTab.newButton("Jump To Shoot", "Enables jump to shoot", function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/jumpshoot.lua"))()
-		loadstring(game:HttpGet("https://pastebin.com/raw/KA4DPct8"))()
-	end)
 
 	Dahood.newButton("Fly", "Allows you to fly", function()
 		loadstring(game:HttpGet("https://pastebin.com/raw/gJfKgLra"))();
