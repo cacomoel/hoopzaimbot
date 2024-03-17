@@ -185,11 +185,6 @@ else
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/fly.lua", true))()
 	end)
 
-	HoopzTab.newButton("Tap to Shoot", "Enables tap to shoot", function()
-		local Script = game:HttpGet("https://raw.githubusercontent.com/6ce/Hoopz-Silent-Aims/main/FindPartOnRayWithIgnoreList.lua", true)
-		loadstring(Script)()
-	end)
-
 	HoopzTab.newButton("Range Indicator (Depricated)", "Enables range indicator", function()
 		print("Soon")
 	end)
