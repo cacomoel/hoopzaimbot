@@ -506,7 +506,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -517,7 +517,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -528,7 +528,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -539,7 +539,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -550,7 +550,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -561,7 +561,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -572,7 +572,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -583,7 +583,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -594,7 +594,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -605,7 +605,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -616,7 +616,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -627,7 +627,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -638,7 +638,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 0
 							end
@@ -648,7 +648,7 @@ else
 								root.Material = Enum.Material.Neon
 								root.Transparency = 1
 							else 
-								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Size = Vector3.new(0.6, 2, 0.6)
 								root.Material = Enum.Material.Plastic
 								root.Transparency = 1
 							end
@@ -659,7 +659,7 @@ else
 							root.Material = Enum.Material.Neon
 							root.Transparency = 1
 						else 
-							root.Size = Vector3.new(0.3, 2, 0.3)
+							root.Size = Vector3.new(0.6, 2, 0.6)
 							root.Material = Enum.Material.Plastic
 							root.Transparency = 1
 						end
@@ -669,7 +669,7 @@ else
 							root.Material = Enum.Material.Neon
 							root.Transparency = 1
 						else 
-							root.Size = Vector3.new(0.3, 2, 0.3)
+							root.Size = Vector3.new(0.6, 2, 0.6)
 							root.Material = Enum.Material.Plastic
 							root.Transparency = 1
 						end
