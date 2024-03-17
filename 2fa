@@ -502,111 +502,175 @@ else
 						if dist >= 13 and dist <= 16 then
 							changePower(30)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 17 and dist <= 21 then
 							changePower(35)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 22 and dist <= 26 then
 							changePower(40)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 27 and dist <= 31 then
 							changePower(45)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 32 and dist <= 36 then
 							changePower(50)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 37 and dist <= 41 then
 							changePower(55)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 42 and dist <= 46 then
 							changePower(60)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 47 and dist <= 50 then
 							changePower(65)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 51 and dist <= 56 then
 							changePower(70)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 57 and dist <= 61 then
 							changePower(75)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 62 and dist <= 67 then
 							changePower(80)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif dist >= 68 and dist <= 74 then
 							changePower(85)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						elseif jumping and dist == 9 or dist == 10 or dist == 11 or dist == 12 then
 							changePower(25)
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 0
 							else 
-								root.Transparency = 1
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
+								root.Transparency = 0
 							end
 						else
 							if _G.Indicator then
+								root.Size = Vector3.new(2.1, 2.1, 1.1)
+								root.Material = Enum.Material.Neon
 								root.Transparency = 1
 							else 
+								root.Size = Vector3.new(0.3, 2, 0.3)
+								root.Material = Enum.Material.Plastic
 								root.Transparency = 1
 							end
 						end
 					elseif root and not hasBall and _G.Aimbot then
 						if _G.Indicator then
+							root.Size = Vector3.new(2.1, 2.1, 1.1)
+							root.Material = Enum.Material.Neon
 							root.Transparency = 1
 						else 
+							root.Size = Vector3.new(0.3, 2, 0.3)
+							root.Material = Enum.Material.Plastic
 							root.Transparency = 1
 						end
 					elseif root and not _G.Aimbot then
 						if _G.Indicator then
+							root.Size = Vector3.new(2.1, 2.1, 1.1)
+							root.Material = Enum.Material.Neon
 							root.Transparency = 1
 						else 
+							root.Size = Vector3.new(0.3, 2, 0.3)
+							root.Material = Enum.Material.Plastic
 							root.Transparency = 1
 						end
 					end
@@ -683,7 +747,8 @@ else
 
 	function jumped()
 		if
-			_G.Aimbot and plr.Character and hasBall
+			_G.Aimbot and plr.Character and hasBall and plr.Character:FindFirstChild("HumanoidRootPart") and
+			plr.Character.HumanoidRootPart.Transparency == 0
 		then
 			jumping = true
 			task.wait(0.325)
