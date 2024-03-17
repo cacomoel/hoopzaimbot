@@ -194,7 +194,7 @@ else
 		loadstring(game:HttpGet("https://github.com/cacomoel/hoopzaimbot/raw/main/Indicator.lua"))()
 	end)
 
-	Main.newToggle("Silent Aim", "Always shoot buckets", false, function(toggleState)
+	HoopzTab.newToggle("Silent Aim", "Always shoot buckets", false, function(toggleState)
 		if toggleState then
 			_G.Aimbot = true
 		else
@@ -684,7 +684,7 @@ else
 				local basketball = player.Character and player.Character:FindFirstChild("Basketball")
 
 				if basketball and basketball:FindFirstChild("Ball") then
-					table.insert(basketballTools, basketball.Ball)
+					table.insert(basketballTools)
 				end
 			end
 		end
