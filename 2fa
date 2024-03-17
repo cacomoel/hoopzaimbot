@@ -218,6 +218,7 @@ else
 	end)
 	
 	_G.Aimbot = false
+	_G.Indicator = true
 	_G.Reach = false
 	_G.Autoguard = false
 	local reset = false
