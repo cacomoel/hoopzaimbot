@@ -679,25 +679,20 @@ else
 						end
 					end
 				end
-
-				updateNearestPlayerWithBall()
 				
-				local maxChaseDistance = 45 -- Maximum distance to chase
+				updateNearestPlayerWithBall()
 
-				if _G.Autoguard and player and plr.Character and plr.Character:FindFirstChild("Humanoid") and
+				if
+					_G.Autogaurd and player and plr.Character and plr.Character:FindFirstChild("Humanoid") and
 					not plr.Character:FindFirstChild("Basketball") and
-					player.Character and player.Character:FindFirstChild("Basketball") then
-
-					-- Check distance between player and target
-					local distance = (plr.Character.HumanoidRootPart.Position - player.Character.Basketball.Position).magnitude
-					print(distance)
-					if distance <= maxChaseDistance then
-						plr.Character.Humanoid:MoveTo(
-							player.Character.Basketball:FindFirstChildOfClass("Part").Position +
-								player.Character.Torso.CFrame.LookVector +
-								((player.Character.Humanoid.MoveDirection * 2) + (plr.Character.Torso.Velocity.Unit * 3))
-						)
-					end
+					player.Character and
+					player.Character:FindFirstChild("Basketball")
+				then
+					plr.Character.Humanoid:MoveTo(
+						player.Character.Basketball:FindFirstChildOfClass("Part").Position +
+							player.Character.Torso.CFrame.LookVector +
+							((player.Character.Humanoid.MoveDirection * 2) + (plr.Character.Torso.Velocity.Unit * 3))
+					)
 
 					if (player.Character.Torso.Position.Y - ground.Position.Y) > 2.5 then
 						plr.Character.Humanoid.Jump = true
