@@ -546,10 +546,6 @@ else
 				end
 
 				updateNearestPlayerWithBall()
-
-				if _G.WS ~= 16 and plr.Character:WaitForChild("Humanoid").WalkSpeed ~= 0 then
-					plr.Character:WaitForChild("Humanoid").WalkSpeed = _G.WS
-				end
 				
 				local maxChaseDistance = 45 -- Maximum distance to chase
 
