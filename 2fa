@@ -185,7 +185,7 @@ else
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/cacomoel/hoopzaimbot/main/fly.lua", true))()
 	end)
 
-	HoopzTab.newButton("Range Indicator", "Enables range indicator", function(toggleState)
+	HoopzTab.newToggle("Range Indicator", "Signals if your in range", false, function(toggleState)
 		if toggleState then
 			_G.Indicator = true
 		else
