@@ -690,6 +690,7 @@ else
 
 					-- Check distance between player and target
 					local distance = (plr.Character.HumanoidRootPart.Position - player.Character.Basketball.Position).magnitude
+					print(distance)
 					if distance <= maxChaseDistance then
 						plr.Character.Humanoid:MoveTo(
 							player.Character.Basketball:FindFirstChildOfClass("Part").Position +
