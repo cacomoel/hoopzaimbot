@@ -531,10 +531,6 @@ else
 
 				updateNearestPlayerWithBall()
 
-				if _G.WS ~= 16 and plr.Character:WaitForChild("Humanoid").WalkSpeed ~= 0 then
-					plr.Character:WaitForChild("Humanoid").WalkSpeed = _G.WS
-				end
-
 				if
 					tracking and player and plr.Character and plr.Character:FindFirstChild("Humanoid") and
 					not plr.Character:FindFirstChild("Basketball") and
