@@ -683,8 +683,7 @@ else
 
 	function jumped()
 		if
-			_G.Aimbot and plr.Character and hasBall and plr.Character:FindFirstChild("HumanoidRootPart") and
-			plr.Character.HumanoidRootPart.Transparency == 0
+			_G.Aimbot and plr.Character and hasBall
 		then
 			jumping = true
 			task.wait(0.325)
