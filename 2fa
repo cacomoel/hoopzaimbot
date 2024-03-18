@@ -217,6 +217,37 @@ else
 		end
 	end)
 	
+	local ping
+	
+	local function updateping()
+		wait(0.9)
+		local plr = Players.LocalPlayer
+		local plabel = plr.PlayerGui:WaitForChild("TopbarInsets")
+		local pingasset = plabel:WaitForChild("PING")
+		local pinglabel = pingasset:WaitForChild("PingLabel").Text
+
+		local function filterNumbers(inputString)
+			local result = ""
+			for i = 1, #inputString do
+				local char = inputString:sub(i, i)
+				if char:match("%d") then
+					result = result .. char
+				end
+			end
+			return result
+		end
+
+		local updnum = filterNumbers(pinglabel)
+		
+		if (updnum < 100) then
+			local ping = updnum / 100
+		else
+			local ping = updnum / 1000
+		end
+	end
+	
+	spawn(updateping)
+	
 	_G.Aimbot = false
 	_G.Indicator = false
 	_G.Reach = false
@@ -750,29 +781,8 @@ else
 			_G.Aimbot and plr.Character and hasBall and plr.Character:FindFirstChild("HumanoidRootPart") and
 			plr.Character.HumanoidRootPart.Transparency == 0
 		then
-			local plabel = plr.PlayerGui:WaitForChild("TopbarInsets")
-			local pingasset = plabel:WaitForChild("PING")
-			local pinglabel = pingasset:WaitForChild("PingLabel").Text
-			
-			local function filterNumbers(inputString)
-				local result = ""
-				for i = 1, #inputString do
-					local char = inputString:sub(i, i)
-					if char:match("%d") then
-						result = result .. char
-					end
-				end
-				return result
-			end
-			
-			local filtered = filterNumbers(pinglabel) wait()
-			if (filtered < 100) then
-				local ping = (filtered / 100)
-			else
-				local ping = (filtered / 1000)
-			end wait()
-			
 			jumping = true
+			
 			task.wait(0.325 + ping)
 			shoot()
 			task.wait(0.1)
