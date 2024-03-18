@@ -238,7 +238,8 @@ else
 			local pingasset = plabel:FindFirstChild("PING")
 			local pinglabel = pingasset:FindFirstChild("PingLabel").Text
 	
-			local ping = filterNumbers(pinglabel)
+			ping = filterNumbers(pinglabel)
+			print(ping)
 		end
 	end
 
