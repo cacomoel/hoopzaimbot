@@ -232,13 +232,13 @@ else
 
 	local function updateping()
 		while true do
-		wait(0.9)
-		local plr = Players.LocalPlayer
-		local plabel = plr.PlayerGui:FindFirstChild("TopbarInsets")
-		local pingasset = plabel:FindFirstChild("PING")
-		local pinglabel = pingasset:FindFirstChild("PingLabel").Text
-
-		local ping = filterNumbers(pinglabel)
+			wait(0.9)
+			local plr = Players.LocalPlayer
+			local plabel = plr.PlayerGui:FindFirstChild("TopbarInsets")
+			local pingasset = plabel:FindFirstChild("PING")
+			local pinglabel = pingasset:FindFirstChild("PingLabel").Text
+	
+			local ping = filterNumbers(pinglabel)
 		end
 	end
 
