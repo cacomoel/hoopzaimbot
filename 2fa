@@ -216,26 +216,26 @@ else
 			_G.Reach = false
 		end
 	end)
+	
+	local function filterNumbers(inputString)
+		local result = ""
+		for i = 1, #inputString do
+			local char = inputString:sub(i, i)
+			if char:match("%d") then
+				result = result .. char
+			end
+		end
+		return result
+	end
 
 	local ping
 
 	local function updateping()
 		wait(0.9)
 		local plr = Players.LocalPlayer
-		local plabel = plr.PlayerGui:WaitForChild("TopbarInsets")
-		local pingasset = plabel:WaitForChild("PING")
-		local pinglabel = pingasset:WaitForChild("PingLabel").Text
-
-		local function filterNumbers(inputString)
-			local result = ""
-			for i = 1, #inputString do
-				local char = inputString:sub(i, i)
-				if char:match("%d") then
-					result = result .. char
-				end
-			end
-			return result
-		end
+		local plabel = plr.PlayerGui:FindFirstChild("TopbarInsets")
+		local pingasset = plabel:FindFirstChild("PING")
+		local pinglabel = pingasset:FindFirstChild("PingLabel").Text
 
 		local ping = filterNumbers(pinglabel)
 	end
