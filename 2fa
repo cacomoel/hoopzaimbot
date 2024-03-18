@@ -765,12 +765,12 @@ else
 				return result
 			end
 			
-			local filtered = filterNumbers(pinglabel)
+			local filtered = filterNumbers(pinglabel) wait()
 			if (filtered < 100) then
 				local ping = (filtered / 100)
 			else
 				local ping = (filtered / 1000)
-			end
+			end wait()
 			
 			jumping = true
 			task.wait(0.325 + ping)
