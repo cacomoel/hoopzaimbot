@@ -237,13 +237,7 @@ else
 			return result
 		end
 
-		local updnum = filterNumbers(pinglabel)
-		
-		if (updnum < 100) then
-			local ping = updnum / 100
-		else
-			local ping = updnum / 1000
-		end
+		local ping = filterNumbers(pinglabel)
 	end
 	
 	spawn(updateping)
@@ -782,8 +776,14 @@ else
 			plr.Character.HumanoidRootPart.Transparency == 0
 		then
 			jumping = true
+
+			if (ping < 100) then
+				local pwait = ping / 100
+			else
+				local pwait = ping / 1000
+			end
 			
-			task.wait(0.325 + ping)
+			task.wait(0.325 + pwait)
 			shoot()
 			task.wait(0.1)
 			jumping = false
