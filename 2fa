@@ -200,7 +200,7 @@ else
 			_G.Aimbot = false
 		end
 	end)
-	
+
 	HoopzTab.newToggle("Autoguard", "Guard the opponet automatically", false, function(toggleState)
 		if toggleState then
 			_G.Autoguard = true
@@ -208,7 +208,7 @@ else
 			_G.Autoguard = false
 		end
 	end)
-	
+
 	HoopzTab.newToggle("Reach", "Magnetize the ball towards you", false, function(toggleState)
 		if toggleState then
 			_G.Reach = true
@@ -216,9 +216,9 @@ else
 			_G.Reach = false
 		end
 	end)
-	
+
 	local ping
-	
+
 	local function updateping()
 		wait(0.9)
 		local plr = Players.LocalPlayer
@@ -239,9 +239,10 @@ else
 
 		local ping = filterNumbers(pinglabel)
 	end
-	
-	spawn(updateping)
-	
+
+	local updatep = coroutine.create(updateping)
+	coroutine.resume(updatep)
+
 	_G.Aimbot = false
 	_G.Indicator = false
 	_G.Reach = false
@@ -704,7 +705,7 @@ else
 						end
 					end
 				end
-				
+
 				updateNearestPlayerWithBall()
 
 				if
@@ -782,7 +783,7 @@ else
 			else
 				local pwait = ping / 1000
 			end
-			
+
 			task.wait(0.325 + pwait)
 			shoot()
 			task.wait(0.1)
@@ -841,7 +842,7 @@ else
 			end
 			end
 		)
-	
+
 	-- end of aimbot
 
 	Dahood.newButton("Fly", "Allows you to fly", function()
