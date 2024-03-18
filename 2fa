@@ -750,8 +750,25 @@ else
 			_G.Aimbot and plr.Character and hasBall and plr.Character:FindFirstChild("HumanoidRootPart") and
 			plr.Character.HumanoidRootPart.Transparency == 0
 		then
+			local plabel = plr.PlayerGui:WaitForChild("TopbarInsets")
+			local pingasset = plabel:WaitForChild("PING")
+			local pinglabel = pingasset:WaitForChild("PingLabel").Text
+			
+			local function filterNumbers(inputString)
+				local result = ""
+				for i = 1, #inputString do
+					local char = inputString:sub(i, i)
+					if char:match("%d") then
+						result = result .. char
+					end
+				end
+				return result
+			end
+			
+			local ping = filterNumbers(pinglabel)
+			
 			jumping = true
-			task.wait(0.325)
+			task.wait(0.325 + ping)
 			shoot()
 			task.wait(0.1)
 			jumping = false
