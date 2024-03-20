@@ -228,23 +228,23 @@ else
 		return result
 	end
 
-	local ping
+	--local ping
 
-	local function updateping()
-		while true do
-			wait(0.9)
-			local plr = Players.LocalPlayer
-			local plabel = plr.PlayerGui:FindFirstChild("TopbarInsets")
-			local pingasset = plabel:FindFirstChild("PING")
-			local pinglabel = pingasset:FindFirstChild("PingLabel").Text
-	
-			ping = filterNumbers(pinglabel)
-			print(ping)
-		end
-	end
+--	local function updateping()
+	--	while true do
+	--		wait(0.9)
+	--		local plr = Players.LocalPlayer
+	--		local plabel = plr.PlayerGui:FindFirstChild("TopbarInsets")
+	--		local pingasset = plabel:FindFirstChild("PING")
+	--		local pinglabel = pingasset:FindFirstChild("PingLabel").Text
+	--
+	--		ping = filterNumbers(pinglabel)
+	--		print(ping)
+	--	end
+--	end
 
-	local updatep = coroutine.create(updateping)
-	coroutine.resume(updatep)
+	--local updatep = coroutine.create(updateping)
+--	coroutine.resume(updatep)
 
 	_G.Aimbot = false
 	_G.Indicator = false
@@ -781,13 +781,13 @@ else
 		then
 			jumping = true
 
-			if (ping < 100) then
-				local pwait = ping / 100
-			else
-				local pwait = ping / 1000
-			end
-
-			task.wait(0.325 + pwait)
+		--	if (ping < 100) then
+		--		local pwait = ping / 100
+		--	else
+		--		local pwait = ping / 1000
+		--	end
+		
+			task.wait(0.325)
 			shoot()
 			task.wait(0.1)
 			jumping = false
